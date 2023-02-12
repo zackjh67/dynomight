@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Mob.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.stex"
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/enemyFlyingAlt_2.png-31dc7310eda6e1b721224f3cd932c076.stex"
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.stex"
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/enemySwimming_2.png-4c0cbc0732264c4ea3290340bd4a0a62.stex"
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/enemyWalking_1.png-5af6eedbe61b701677d490ffdc1e6471.stex"
+
+[sub_resource type="StreamTexture" id=8]
+flags = 4
+load_path = "res://.import/enemyWalking_2.png-67c480ed60c35e95f5acb0436246b935.stex"
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "swim",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 35.2706
+height = 23.3281
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
