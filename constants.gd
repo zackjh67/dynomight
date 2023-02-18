@@ -5,6 +5,9 @@ extends Node
 var interactable_object_messages = {
 	'my_bed': "I'm not tired right now."
 }
+
+export var DEFAULT_DIALOGUE_SPEED = 0.03
+
 onready var Dialogue = get_node("/root/Main/Dialogue")
 
 

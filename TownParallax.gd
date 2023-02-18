@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-var offset_y = 0
-func _physics_process(delta):
-	set_motion_offset(Vector2(0, offset_y))
-	offset_y -= 0.4
+#var offset_y = 0
+#func _physics_process(delta):
+	#set_motion_offset(Vector2(0, offset_y))
+	#offset_y -= 0.4

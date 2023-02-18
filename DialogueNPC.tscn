@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DialogueNPC.gd" type="Script" id=1]
+[ext_resource path="res://default_theme.tres" type="Theme" id=2]
+
+[node name="DialogueNPC" type="Node2D"]
+z_index = 50
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 62.0
+margin_bottom = 31.0
+theme = ExtResource( 2 )
+text = "hello "
+autowrap = true
+
+[node name="NextChar" type="Timer" parent="."]
+
+[node name="NextMessage" type="Timer" parent="."]
+
+[connection signal="timeout" from="NextChar" to="." method="_on_NextChar_timeout"]
+[connection signal="timeout" from="NextMessage" to="." method="_on_NextMessage_timeout"]

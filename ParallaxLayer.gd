@@ -14,8 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-var offset_x = 0
-func _physics_process(delta):
-	set_motion_offset(Vector2(offset_x,0))
-	offset_x += 1
-pass
+#var offset_x = 0
+#func _physics_process(delta):
+#	set_motion_offset(Vector2(offset_x,0))
+	#offset_x += 1
+#pass

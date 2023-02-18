@@ -5,9 +5,10 @@ var score
 var current_map
 var maps_map = {
 	'home': 'res://Home.tscn',
-	'shelby_pristine': 'res://ShelbyPristine.tscn'
+	'intro': 'res://IntroLvl.tscn'
 }
-onready var player = get_node("Player")
+onready var player
+var bus
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -35,7 +36,6 @@ func game_over():
 func new_game():
 	print('fuckkkkk')
 	score = 0
-	player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	#$HUD.show_message("Lets Get READY READY")
@@ -43,7 +43,7 @@ func new_game():
 	
 	$Music.play()
 	
-	load_map('home')
+	load_map('intro')
 
 func _on_ScoreTimer_timeout():
 	score += 1
@@ -52,14 +52,6 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
-
-
-func _on_Door_area_entered(area):
-	print('fuck')
-
-
-func _on_CollisionShape2D_child_entered_tree(node):
-	print('shit???')
 
 
 func _on_Door_body_entered(body):
@@ -72,8 +64,12 @@ func load_map(map_name):
 		current_map.queue_free()
 	current_map = load(maps_map.get(map_name)).instance()
 	var scene = add_child(current_map)
-	for child in current_map.get_children():
-		if child is Position2D and child.name == 'PlayerStartPosition':
-			player.position = child.position
 	
-	#move_child(child, len(get_children()) - 1)
+	# spawn player in desired position
+	for child in current_map.get_children():
+		if child is Position2D and child.name == 'PlayerStartPosition' and player:
+			player.position = child.position
+			pass
+
+func _physics_process(delta):
+	pass
