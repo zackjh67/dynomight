@@ -66,29 +66,27 @@ onready var dialogues = {
 	'player': $PlayerPath/PathFollow2D/Dialogue,
 }
 
-onready var jennay_dialogue = $JennayPath/PathFollow2D/Dialogue
-onready var chad_dialogue = $ChadPath/PathFollow2D/Dialogue
-onready var mickey_dialogue = $MickeyPath/PathFollow2D/Dialogue
-onready var player_dialogue = $PlayerPath/PathFollow2D/Dialogue
-
 var current_stop = 0
 var stop_count = 0
-var stops = ['Stop1', 'Stop2']
+var stops = ['Stop1', 'Stop2', 'Stop3']
 
 func stop(body, stop, character_name):
+	print('character:   ', character_name)
 	# check which character this stop belongs to
 	if body.name == char_name_node_name[character_name]:
-		print('character name???? ', character_name)
-		stopped[character_name] = true
-		stop_count += 1
+		# remove stop collision boxes. we don't want to use them twice
+		stop.remove_child(stop.get_children()[0])
+		
+		stop_character(character_name)
 		
 		if stop_count == len(characters):
 			var stp = stops[current_stop]
 			if stp == 'Stop1':
 				start_game_store_interaction()
 				
-func dialogue_closed(character_name):
-	print('its closed lol')
+func point_character(character, direction):
+	var direction_map = { 'left':Vector2.LEFT, 'right':Vector2.RIGHT, 'up':Vector2.UP, 'down':Vector2.DOWN}
+	anim_trees[character]["parameters/Idle/blend_position"] = direction_map[direction]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,7 +95,8 @@ func _ready():
 		for stop in char_stops[character]:
 			stop.connect('body_entered', self, 'stop', [stop, character])
 			
-		dialogues[character].connect('dialogue_closed', self, 'dialogue_closed', [character])
+		# connect dialogue closed signals for characters. may not need
+#		dialogues[character].connect('dialogue_closed', self, 'dialogue_closed', [character])
 			
 	# set up npcs
 	for npc in npcs:
@@ -109,7 +108,8 @@ func _ready():
 	yield(dialogues['jennay'], "dialogue_closed")
 	# TODO richtext this shit a little bit so we can see how much chad hates horse camp
 	dialogues['chad'].set_messages(["My parents are sending me to Horse Camp"])
-	
+	yield(dialogues['chad'], "dialogue_closed")
+	dialogues['player'].set_messages(["Boy am I glad I'm not you.", "I'll be playing pocketmang all Summer."])
 
 func _physics_process(delta):
 	# run paths
@@ -118,7 +118,7 @@ func _physics_process(delta):
 		var path_follow = path_follows[character]
 		var anim_tree = anim_trees[character]
 		
-		if stopped[character] == false:
+		if !stopped[character]:
 			path_follow.set_offset(path_follow.get_offset() + char_speed * delta)
 		
 			var velocity = path_follow.position - old_positions[character]
@@ -137,29 +137,42 @@ func start_character(name, speed):
 	if speed:
 		path_speeds[name] = speed
 	stopped[name] = false
+	stop_count -= 1
 		
 func stop_character(name):
 	stopped[name] = true
+	stop_count += 1
 		
 # first stop at the game store
 func start_game_store_interaction():
 	yield(get_tree().create_timer(0.5), "timeout")
+	point_character('chad', 'left')
 	dialogues['chad'].set_messages(["I'll be right back. Just got to grab a pack of Pokingman cards."])
 	yield(get_tree().create_timer(3), "timeout")
-	path_speeds['chad'] = 75
-	stopped['chad'] = false
-	
-	# todo some conversation and then chad comes out after like... 30 seconds
-	get_tree().create_timer(15).connect("timeout", self, 'start_character', ['chad', 75])
-	get_tree().create_timer(16).connect("timeout", self, 'start_character', ['chad', default_speed])
-	get_tree().create_timer(16).connect("timeout", self, 'start_character', ['jennay', default_speed])
-	get_tree().create_timer(16).connect("timeout", self, 'start_character', ['player', default_speed])
-	get_tree().create_timer(16).connect("timeout", self, 'start_character', ['mickey', default_speed])
+	start_character('chad', 75)
 	
 	yield(get_tree().create_timer(2), "timeout")
+	point_character('player', 'right')
 	dialogues['player'].set_messages(['I hope he gets a Chumbawumba'])
-	yield(get_tree().create_timer(3), "timeout")
+	point_character('mickey', 'left')
+	yield(dialogues['player'], "dialogue_closed")
 	dialogues['mickey'].set_messages(['No way ballisore is the best!'])
+	yield(dialogues['mickey'], "message_finished")
+	$ChadPath/Stops/Stop3/CollisionShape2D.disabled = false
+	start_character('chad', 75)
+	yield(char_stops['chad'][2], 'body_entered')
+	dialogues['chad'].set_messages(['Aw man!', "I got 3 Rattards and a Monkaymone"])
+	yield(dialogues['chad'], 'message_finished')
+	yield(dialogues['chad'], 'message_finished')
+	dialogues['jennay'].set_messages(['lol!', "LMAO"])
+	yield(dialogues['jennay'], 'dialogue_closed')
+	dialogues['player'].set_messages(["Come on I gotta get home before my grandma gets pissed"])
+	yield(dialogues['player'], 'dialogue_closed')
+	
+	start_character('chad', default_speed)
+	start_character('player', default_speed)
+	start_character('jennay', default_speed)
+	start_character('mickey', default_speed)
 
 
 func _on_GamestoreCheckpoint_body_entered(body):

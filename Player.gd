@@ -22,6 +22,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var last_rotation = 0
 func _physics_process(delta):
 	# the player can't do anything if dialogue is open
 	if can_move:
@@ -50,11 +51,11 @@ func _physics_process(delta):
 			velocity = velocity.normalized()
 			
 			#animations
-			if velocity == Vector2.ZERO:
-				$AnimationTree.get('parameters/playback').travel('Idle')
-			else:
-				$AnimationTree.set('parameters/Idle/blend_position', velocity)
-				$AnimationTree.set('parameters/Walk/blend_position', velocity)
+#			if velocity == Vector2.ZERO:
+#				$AnimationTree.get('parameters/playback').travel('Idle')
+#			else:
+#				$AnimationTree.set('parameters/Idle/blend_position', velocity)
+#				$AnimationTree.set('parameters/Walk/blend_position', velocity)
 			
 			#move the player
 			velocity = move_and_slide(velocity * speed)

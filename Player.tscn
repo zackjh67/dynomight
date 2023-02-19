@@ -252,8 +252,9 @@ anims/walk_up = SubResource( 60 )
 tree_root = SubResource( 61 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
+root_motion_track = NodePath("Sprite:frame_coords")
 parameters/playback = SubResource( 62 )
-parameters/Idle/blend_position = Vector2( 0, 0.0501931 )
+parameters/Idle/blend_position = Vector2( 0, 0.05 )
 parameters/Walk/blend_position = Vector2( -0.763898, -0.442088 )
 
 [connection signal="hit" from="." to="." method="_on_Player_hit"]

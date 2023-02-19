@@ -1,6 +1,7 @@
 extends Node2D
 
 signal dialogue_closed
+signal message_finished
 
 export var messages = []
 
@@ -52,6 +53,7 @@ func _on_NextChar_timeout():
 			$NextMessage.start()
 
 func _on_NextMessage_timeout():
+	emit_signal('message_finished')
 	if (current_message == len(messages) - 1):
 		stop_dialogue()
 	else: 
