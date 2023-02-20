@@ -1,11 +1,18 @@
 extends Node
 
 export(PackedScene) var mob_scene
+
+# for debugging
+export(String, "Home", "Intro", "Grandmas House (Default)", "Grandmas House (Basement)", "Grandmas House (Player Room)") var level
+
 var score
 var current_map
 var maps_map = {
-	'home': 'res://Home.tscn',
-	'intro': 'res://IntroLvl.tscn'
+	'Home': 'res://Home.tscn',
+	'Intro': 'res://IntroLvl.tscn',
+	'Grandmas House (Default)': "res://maps/interiors/grandmas_house/Default.tscn",
+	'Grandmas House (Basement)': "res://maps/interiors/grandmas_house/Basement.tscn",
+	'Grandmas House (Player Room)': "res://maps/interiors/grandmas_house/PlayerRoom.tscn",
 }
 onready var player
 var bus
@@ -34,7 +41,6 @@ func game_over():
 	$DeathSound.play()
 	
 func new_game():
-	print('fuckkkkk')
 	score = 0
 	$StartTimer.start()
 	$HUD.update_score(score)
@@ -43,7 +49,10 @@ func new_game():
 	
 	$Music.play()
 	
-	load_map('intro')
+	print_debug('level: ', level)
+	if !level:
+		level = "Intro"
+	load_map(maps_map[level])
 
 func _on_ScoreTimer_timeout():
 	score += 1
@@ -52,17 +61,11 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
-
-
-func _on_Door_body_entered(body):
-	if body.name == 'Player':
-		print(body.name)
-		load_map('shelby_pristine')
 		
-func load_map(map_name):
+func load_map(map):
 	if current_map != null:
 		current_map.queue_free()
-	current_map = load(maps_map.get(map_name)).instance()
+	current_map = load(map).instance()
 	var scene = add_child(current_map)
 	
 	# spawn player in desired position

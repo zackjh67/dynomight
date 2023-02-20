@@ -7,8 +7,8 @@ export var messages = []
 
 export var keep_message = false
 
-export var typing_speed = Constants.DEFAULT_DIALOGUE_SPEED
-export var read_time = 2
+export var typing_speed = Constants.DEFAULT_DIALOGUE_SPEED/G.FAST_FORWARD
+export var read_time = 2/G.FAST_FORWARD
 
 var current_message = 0
 var display = ""
@@ -63,7 +63,6 @@ func _on_NextMessage_timeout():
 		$NextChar.start()
 
 func set_messages(msgs):
-	print('messgaes ', msgs)
 	messages = msgs
 	done_processing_messages = false
 	start_dialogue()

@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Constants="*res://constants.gd"
+G="*res://G.gd"
 
 [display]
 

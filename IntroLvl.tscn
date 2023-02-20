@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://maps/ShelbyPristine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPCs/BobsBurgersEnjoyer.tscn" type="PackedScene" id=2]
@@ -17,32 +17,49 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -55, -1054, 0, 0, 0, 0, -56, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 97, 403 )
+"points": PoolVector2Array( 0, 0, 0, 0, -55, -1054, 0, 0, 0, 0, -56, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 97, 403, 0, 0, 0, 0, 96, 496, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 800, 400, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 256, 496, 0, 0, 0, 0, 256, 1184, 0, 0, 0, 0, 256, 1552, 0, 0, 0, 0, 192, 1552, 0, 0, 0, 0, 192, 1456 )
 }
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1, 5.5 )
 
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 10, 5 )
+
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -56, -1045, 0, 0, 0, 0, -56, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -260, -41, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, 95, 26, 0, 0, 0, 0, 96, 401 )
+"points": PoolVector2Array( 0, 0, 0, 0, -56, -1045, 0, 0, 0, 0, -56, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -260, -41, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, 95, 26, 0, 0, 0, 0, 96, 466, 0, 0, 0, 0, 752, 464, 0, 0, 0, 0, 224, 464, 0, 0, 0, 0, 224, 1136, 0, 0, 0, 0, 224, 1520, 0, 0, 0, 0, 680, 1520, 0, 0, 0, 0, 680, 1744, 0, 0, 0, 0, 600, 1744, 0, 0, 0, 0, 600, 1664 )
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1.5, 4 )
+extents = Vector2( 4.75, 10 )
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 1.75, 3.5 )
 
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 33.25, 8 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 6.5, 11.5 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 10, 2 )
+
 [sub_resource type="Curve2D" id=8]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -44, -1075, 0, 0, 0, 0, -44, 47, 0, 0, 0, 0, -217, 47, 0, 0, 0, 0, -217, 36, 0, 0, 0, 0, -218, 46, 0, 0, 0, 0, 106, 51, 0, 0, 0, 0, 107, 362 )
+"points": PoolVector2Array( 0, 0, 0, 0, -44, -1075, 0, 0, 0, 0, -44, 47, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, -232, 40, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, 106, 51, 0, 0, 0, 0, 107, 362, 0, 0, 0, 0, 104, 472, 0, 0, 0, 0, 952, 472, 0, 0, 0, 0, 952, 536, 0, 0, 0, 0, 1104, 536, 0, 0, 0, 0, 1104, 456 )
 }
 
 [sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -63, -1007, 0, 0, 0, 0, -62.8481, -862.481, 0, 0, 0, 0, -64, 32, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, -274, 21, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, 76, 31, 0, 0, 0, 0, 76, 442 )
+"points": PoolVector2Array( 0, 0, 0, 0, -63, -1007, 0, 0, 0, 0, -62.8481, -862.481, 0, 0, 0, 0, -64, 32, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, -274, 21, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, 76, 31, 0, 0, 0, 0, 76, 442, 0, 0, 0, 0, 80, 504, 0, 0, 0, 0, 816, 504, 0, 0, 0, 0, 224, 504, 0, 0, 0, 0, 224, 1248, 0, 0, 0, 0, 224, 1560, 0, 0, 0, 0, 752, 1560, 0, 0, 0, 0, 896, 1560, 0, 0, 0, 0, 896, 1480 )
 }
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 9, 8 )
+
+[sub_resource type="RectangleShape2D" id=33]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
@@ -58,6 +75,9 @@ radius = 46.0435
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 26, 14.5 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 20, 32 )
 
 [node name="IntroLvl" type="YSort"]
 script = ExtResource( 3 )
@@ -120,6 +140,35 @@ position = Vector2( -248, 24 )
 position = Vector2( 0, 5 )
 shape = SubResource( 3 )
 
+[node name="Stop2" type="Area2D" parent="JennayPath/Stops"]
+position = Vector2( -248, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JennayPath/Stops/Stop2"]
+position = Vector2( 1048, 472 )
+shape = SubResource( 28 )
+
+[node name="Stop3" type="Area2D" parent="JennayPath/Stops"]
+position = Vector2( -248, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JennayPath/Stops/Stop3"]
+position = Vector2( 1048, 384 )
+shape = SubResource( 28 )
+
+[node name="Stop4" type="Area2D" parent="JennayPath/Stops"]
+position = Vector2( -248, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JennayPath/Stops/Stop4"]
+position = Vector2( 1048, 448 )
+shape = SubResource( 28 )
+disabled = true
+
+[node name="Stop5" type="Area2D" parent="JennayPath/Stops"]
+position = Vector2( -248, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JennayPath/Stops/Stop5"]
+position = Vector2( 504, 1144 )
+shape = SubResource( 28 )
+
 [node name="ChadPath" type="Path2D" parent="."]
 position = Vector2( 8, 16 )
 curve = SubResource( 2 )
@@ -159,6 +208,24 @@ position = Vector2( -247.25, 2 )
 shape = SubResource( 26 )
 disabled = true
 
+[node name="Stop4" type="Area2D" parent="ChadPath/Stops"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChadPath/Stops/Stop4"]
+position = Vector2( 729.25, 464 )
+shape = SubResource( 29 )
+
+[node name="Stop5" type="Area2D" parent="ChadPath/Stops"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChadPath/Stops/Stop5"]
+position = Vector2( 224, 1120 )
+shape = SubResource( 30 )
+
+[node name="Stop6" type="Area2D" parent="ChadPath/Stops"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChadPath/Stops/Stop6"]
+position = Vector2( 680, 1545 )
+shape = SubResource( 32 )
+
 [node name="MickeyPath" type="Path2D" parent="."]
 curve = SubResource( 8 )
 
@@ -180,7 +247,7 @@ z_index = 100
 position = Vector2( -217, 35 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MickeyPath/Stops/Stop1"]
-position = Vector2( 0, 5 )
+position = Vector2( -11.75, 11 )
 shape = SubResource( 4 )
 
 [node name="PlayerPath" type="Path2D" parent="."]
@@ -206,6 +273,27 @@ position = Vector2( -274, 20 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPath/Stops/Stop1"]
 position = Vector2( 0, 5 )
 shape = SubResource( 4 )
+
+[node name="Stop2" type="Area2D" parent="PlayerPath/Stops"]
+position = Vector2( -274, 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPath/Stops/Stop2"]
+position = Vector2( 1082, 484 )
+shape = SubResource( 31 )
+
+[node name="Stop3" type="Area2D" parent="PlayerPath/Stops"]
+position = Vector2( -274, 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPath/Stops/Stop3"]
+position = Vector2( 498, 1180 )
+shape = SubResource( 31 )
+
+[node name="Stop4" type="Area2D" parent="PlayerPath/Stops"]
+position = Vector2( -274, 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPath/Stops/Stop4"]
+position = Vector2( 982, 1540 )
+shape = SubResource( 33 )
 
 [node name="NPCNews1" parent="." instance=ExtResource( 8 )]
 position = Vector2( 175, 174 )
@@ -243,12 +331,26 @@ position = Vector2( -65, -52 )
 position = Vector2( 12, -103 )
 shape = SubResource( 14 )
 
+[node name="LibraryCheckpoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryCheckpoint"]
+position = Vector2( 572, 488 )
+shape = SubResource( 27 )
+
 [connection signal="body_entered" from="JennayPath/Stops/Stop1" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="JennayPath/Stops/Stop2" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="JennayPath/Stops/Stop3" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="JennayPath/Stops/Stop4" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="JennayPath/Stops/Stop5" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="ChadPath/Stops/Stop1" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="ChadPath/Stops/Stop2" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="MickeyPath/Stops/Stop1" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="PlayerPath/Stops/Stop1" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="PlayerPath/Stops/Stop2" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="PlayerPath/Stops/Stop3" to="." method="_on_poop_body_entered"]
+[connection signal="body_entered" from="PlayerPath/Stops/Stop4" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="GamestoreCheckpoint" to="." method="_on_GamestoreCheckpoint_body_entered"]
+[connection signal="body_entered" from="LibraryCheckpoint" to="." method="_on_LibraryCheckpoint_body_entered"]
 
 [editable path="Jennay"]
 [editable path="Chad"]

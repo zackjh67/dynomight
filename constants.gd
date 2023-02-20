@@ -1,6 +1,5 @@
 extends Node
 
-
 # Declare member variables here. Examples:
 var interactable_object_messages = {
 	'my_bed': "I'm not tired right now."

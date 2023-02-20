@@ -551,7 +551,7 @@ format = 1
 tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
 
 [node name="Dirt Lot" type="Node2D" parent="."]
-position = Vector2( 188, 1200 )
+position = Vector2( 102, 1205 )
 
 [node name="3x3 building3" type="TileMap" parent="Dirt Lot"]
 position = Vector2( 12, -20 )
@@ -618,6 +618,39 @@ tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534
 
 [node name="3x3 building5" type="TileMap" parent="Library"]
 position = Vector2( -480, -100 )
+tile_set = SubResource( 16 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
+
+[node name="Mickeys House" type="Node2D" parent="."]
+position = Vector2( 1110, 468 )
+
+[node name="3x3 building3" type="TileMap" parent="Mickeys House"]
+position = Vector2( 12, -20 )
+tile_set = SubResource( 16 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
+
+[node name="Jennays House" type="Node2D" parent="."]
+position = Vector2( 188, 1480 )
+
+[node name="3x3 building3" type="TileMap" parent="Jennays House"]
+position = Vector2( 12, -20 )
+tile_set = SubResource( 16 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
+
+[node name="Chads House" type="Node2D" parent="."]
+position = Vector2( 612, 1685 )
+
+[node name="3x3 building3" type="TileMap" parent="Chads House"]
+position = Vector2( 12, -20 )
 tile_set = SubResource( 16 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
