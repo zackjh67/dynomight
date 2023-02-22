@@ -8,6 +8,7 @@
 
 [node name="Main" type="YSort"]
 script = ExtResource( 1 )
+level = "Grandmas House (Default)"
 
 [node name="MobTimer" type="Timer" parent="."]
 

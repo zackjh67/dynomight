@@ -7,6 +7,7 @@ export var speed = 200 #how fast the player will move (pixels/sec)
 var screen_size # size of the game window
 var approached_tile
 var allow_tile_interaction = true
+var allow_interaction = true
 var can_move = true
 var velocity
 
@@ -42,6 +43,8 @@ func _physics_process(delta):
 			velocity.y -= 1
 			direction = Vector2.UP
 			
+		G.player_direction = direction
+			
 		# normalize play the coordinates and velocity look this up later you dont fully understand this lol
 		if velocity.length() > 0:
 			# clear tile in front of us
@@ -51,11 +54,11 @@ func _physics_process(delta):
 			velocity = velocity.normalized()
 			
 			#animations
-#			if velocity == Vector2.ZERO:
-#				$AnimationTree.get('parameters/playback').travel('Idle')
-#			else:
-#				$AnimationTree.set('parameters/Idle/blend_position', velocity)
-#				$AnimationTree.set('parameters/Walk/blend_position', velocity)
+			if velocity == Vector2.ZERO:
+				$AnimationTree.get('parameters/playback').travel('Idle')
+			else:
+				$AnimationTree.set('parameters/Idle/blend_position', velocity)
+				$AnimationTree.set('parameters/Walk/blend_position', velocity)
 			
 			#move the player
 			velocity = move_and_slide(velocity * speed)
@@ -75,6 +78,8 @@ func _process(delta):
 
 func _input(ev):
 	if ev.is_action_pressed("interact"):
+		if allow_interaction and G.current_interactable and G.current_interactable.has_method('interact'):
+			G.current_interactable.interact()
 		# interaction for TILES ONLY
 		if allow_tile_interaction and approached_tile:
 			if obj_messages.has(approached_tile):

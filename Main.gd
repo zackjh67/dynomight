@@ -3,23 +3,26 @@ extends Node
 export(PackedScene) var mob_scene
 
 # for debugging
-export(String, "Home", "Intro", "Grandmas House (Default)", "Grandmas House (Basement)", "Grandmas House (Player Room)") var level
+export(String, "Home",
+ "Intro",
+ "Grandmas House (Default)",
+ "Grandmas House (Basement)",
+ "Grandmas House (Player Room)", 
+ "Explore Pristine Shelby") var level
 
 var score
 var current_map
 var maps_map = {
 	'Home': 'res://Home.tscn',
 	'Intro': 'res://IntroLvl.tscn',
-	'Grandmas House (Default)': "res://maps/interiors/grandmas_house/Default.tscn",
-	'Grandmas House (Basement)': "res://maps/interiors/grandmas_house/Basement.tscn",
-	'Grandmas House (Player Room)': "res://maps/interiors/grandmas_house/PlayerRoom.tscn",
+	'Grandmas House (Default)': "res://maps/interiors/grandmas_house_pristine/Default.tscn",
+	'Grandmas House (Basement)': "res://maps/interiors/grandmas_house_pristine/Basement.tscn",
+	'Grandmas House (Player Room)': "res://maps/interiors/grandmas_house_pristine/PlayerRoom.tscn",
+	'Explore Pristine Shelby': 'res://IntroLvl.tscn',
 }
+
 onready var player
 var bus
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
