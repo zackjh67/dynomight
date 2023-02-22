@@ -17,18 +17,17 @@ func _ready():
 
 
 func _on_Interactable_body_entered(body):
-	if direction != 'none':
-		if G.player_direction == direction_map[direction]:
-			G.set_current_interactable(self);
-	else:
-		G.set_current_interactable(self);
+	G.set_current_interactable(self);
 
 
 func _on_Interactable_body_exited(body):
 	G.set_current_interactable(null)
 	
 # CREATE FUNCTION FOR INTERACTING WITH OBJECT
-#func interact():
-#	if !interacting:
-#		print('im being interacted with ', self)
-#		interacting = true
+func interact():
+	if !interacting:
+		if !direction or direction == 'none' or G.player_direction == direction_map[direction]:
+			$Actions.get_children()[0].interact()
+			interacting = true
+			yield($Actions.get_children()[0], 'action_finished')
+			interacting = false

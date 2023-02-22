@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://art/gameover.wav" type="AudioStream" id=5]
 [ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=6]
@@ -32,3 +33,11 @@ volume_db = -33.21
 stream = ExtResource( 5 )
 
 [node name="Dialogue" parent="." instance=ExtResource( 10 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_Dialogue_dialogue_finished"]
+[connection signal="dialogue_started" from="Dialogue" to="." method="_on_Dialogue_dialogue_started"]

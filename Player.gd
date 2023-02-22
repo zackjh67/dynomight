@@ -12,7 +12,7 @@ var can_move = true
 var velocity
 
 var obj_messages = Constants.interactable_object_messages
-onready var dialogue = Constants.Dialogue
+onready var dialogue = G.Dialogue
 onready var anim_state_machine = $AnimationTree["parameters/playback"]
 
 
@@ -43,7 +43,8 @@ func _physics_process(delta):
 			velocity.y -= 1
 			direction = Vector2.UP
 			
-		G.player_direction = direction
+		if direction != Vector2.ZERO:
+			G.player_direction = direction
 			
 		# normalize play the coordinates and velocity look this up later you dont fully understand this lol
 		if velocity.length() > 0:

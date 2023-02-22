@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Action",
+"language": "GDScript",
+"path": "res://actions/action.gd"
+} ]
+_global_script_class_icons={
+"Action": ""
+}
+
 [application]
 
 config/name="KillCreeps"

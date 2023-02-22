@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://maps/ShelbyPristine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPCs/BobsBurgersEnjoyer.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://art/characters/generic assetts/Soldier/Soldier 04-2.png" type="Texture" id=7]
 [ext_resource path="res://NPCs/ProximityNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actions/action.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
@@ -79,7 +80,7 @@ extents = Vector2( 26, 14.5 )
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 20, 32 )
 
-[node name="IntroLvl" type="YSort"]
+[node name="IntroLvl" type="YSort" groups=["action_scene"]]
 script = ExtResource( 3 )
 
 [node name="ShelbyPristine" parent="." instance=ExtResource( 1 )]
@@ -336,6 +337,8 @@ shape = SubResource( 14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryCheckpoint"]
 position = Vector2( 572, 488 )
 shape = SubResource( 27 )
+
+[node name="action" parent="." instance=ExtResource( 9 )]
 
 [connection signal="body_entered" from="JennayPath/Stops/Stop1" to="." method="_on_poop_body_entered"]
 [connection signal="body_entered" from="JennayPath/Stops/Stop2" to="." method="_on_poop_body_entered"]

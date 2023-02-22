@@ -21,7 +21,7 @@ var maps_map = {
 	'Explore Pristine Shelby': 'res://IntroLvl.tscn',
 }
 
-onready var player
+onready var player = $Player
 var bus
 
 
@@ -77,5 +77,14 @@ func load_map(map):
 			player.position = child.position
 			pass
 
-func _physics_process(delta):
-	pass
+# pause player movement and interacting when global dialogue is open
+func _on_Dialogue_dialogue_started():
+	player.allow_tile_interaction = false
+	player.allow_interaction = false
+	player.can_move = false
+
+
+func _on_Dialogue_dialogue_finished():
+	player.allow_tile_interaction = true
+	player.allow_interaction = true
+	player.can_move = true
