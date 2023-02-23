@@ -4,6 +4,7 @@
 [ext_resource path="res://actions/DialogueAction.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
 extents = Vector2( 8, 12.5 )
 
 [node name="AreaInteractable" type="Area2D"]
@@ -14,7 +15,7 @@ shape = SubResource( 1 )
 
 [node name="Actions" type="Node" parent="."]
 
-[node name="DialogeAction" parent="Actions" instance=ExtResource( 2 )]
+[node name="DialogueAction" parent="Actions" instance=ExtResource( 2 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Interactable_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Interactable_body_exited"]

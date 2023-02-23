@@ -8,6 +8,15 @@ var interactable_object_messages = {
 	}
 }
 
+var portals = {
+	'grandmas_house': {
+		'outside': {
+			'locked_message': "You just got here. Hang out for a little while",
+			'from': 'Grandmas',
+		}
+	}
+}
+
 export var DEFAULT_DIALOGUE_SPEED = 0.03
 export var GLOBAL_DIALOGUE_TIMEOUT = 2 #seconds
 

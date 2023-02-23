@@ -1,4 +1,4 @@
-extends Area2D
+extends YSort
 
 
 # Declare member variables here. Examples:
@@ -14,12 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Door_body_entered(body):
-	print('body!: ', body.name)
-	if body.name == 'Player':
-		print('player entered')
-		var node = get_tree().get_root().get_node("Main").load_map('shelby_pristine')
-		print('node!: ', node)
-	pass # Replace with function body.

@@ -1,0 +1,95 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 2
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+
+Go inside Grandma's House?
+- Yes
+	do emit_signal(\"global_dialogue_finished\")
+	do load_map(current_interactable.get_parent().to, \"ShelbyPristine\")
+- No => END"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"2": {
+"character": "",
+"next_id": "3",
+"replacements": [  ],
+"text": "Go inside Grandma's House?",
+"translation_key": "Go inside Grandma's House?",
+"type": "dialogue"
+},
+"3": {
+"next_id": "4",
+"next_id_after": "end!",
+"replacements": [  ],
+"responses": PoolStringArray( "3", "6" ),
+"text": "Yes",
+"translation_key": "Yes",
+"type": "response"
+},
+"4": {
+"mutation": {
+"expression": [ {
+"function": "emit_signal",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "global_dialogue_finished"
+} ] ]
+} ]
+},
+"next_id": "5",
+"parent_id": "3",
+"type": "mutation"
+},
+"5": {
+"mutation": {
+"expression": [ {
+"function": "load_map",
+"type": "function",
+"value": [ [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "to"
+} ], [ {
+"type": "string",
+"value": "ShelbyPristine"
+} ] ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "3",
+"type": "mutation"
+},
+"6": {
+"next_id": "end",
+"next_id_after": "end!",
+"replacements": [  ],
+"text": "No",
+"translation_key": "No",
+"type": "response"
+}
+}

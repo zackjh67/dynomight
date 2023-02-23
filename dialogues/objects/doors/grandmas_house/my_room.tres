@@ -1,0 +1,93 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 9
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+
+
+Go to Your Room?
+- Yes
+	do emit_signal(\"global_dialogue_finished\")
+	do load_map(current_interactable.get_parent().to)
+- No => END"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "3"
+}
+lines = {
+"0": {
+"next_id": "3",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"3": {
+"character": "",
+"next_id": "4",
+"replacements": [  ],
+"text": "Go to Your Room?",
+"translation_key": "Go to Your Room?",
+"type": "dialogue"
+},
+"4": {
+"next_id": "5",
+"next_id_after": "end!",
+"replacements": [  ],
+"responses": PoolStringArray( "4", "7" ),
+"text": "Yes",
+"translation_key": "Yes",
+"type": "response"
+},
+"5": {
+"mutation": {
+"expression": [ {
+"function": "emit_signal",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "global_dialogue_finished"
+} ] ]
+} ]
+},
+"next_id": "6",
+"parent_id": "4",
+"type": "mutation"
+},
+"6": {
+"mutation": {
+"expression": [ {
+"function": "load_map",
+"type": "function",
+"value": [ [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "to"
+} ] ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "4",
+"type": "mutation"
+},
+"7": {
+"next_id": "end",
+"next_id_after": "end!",
+"replacements": [  ],
+"text": "No",
+"translation_key": "No",
+"type": "response"
+}
+}

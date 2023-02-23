@@ -17,11 +17,13 @@ func _ready():
 
 
 func _on_Interactable_body_entered(body):
-	G.set_current_interactable(self);
+	if body.name == 'Player':
+		G.set_current_interactable(self);
 
 
 func _on_Interactable_body_exited(body):
-	G.set_current_interactable(null)
+	if body.name == 'Player':
+		G.set_current_interactable(null)
 	
 # CREATE FUNCTION FOR INTERACTING WITH OBJECT
 func interact():

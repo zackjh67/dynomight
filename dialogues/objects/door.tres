@@ -1,0 +1,178 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 9
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+
+if current_interactable.get_parent().locked
+	{{current_interactable.get_parent().locked_message}}
+else
+	Go {{current_interactable.get_parent().to_text}}?
+	- Yes
+		do emit_signal(\"global_dialogue_finished\")
+		do load_map(current_interactable.get_parent().to, current_map.name)
+	- No => END"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "locked"
+} ]
+},
+"next_conditional_id": "4",
+"next_id": "3",
+"next_id_after": "end!",
+"type": "condition"
+},
+"3": {
+"character": "",
+"next_id": "end!",
+"parent_id": "2",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "locked_message"
+} ],
+"value_in_text": "{{current_interactable.get_parent().locked_message}}"
+} ],
+"text": "{{current_interactable.get_parent().locked_message}}",
+"translation_key": "{{current_interactable.get_parent().locked_message}}",
+"type": "dialogue"
+},
+"4": {
+"next_conditional_id": "end!",
+"next_id": "5",
+"next_id_after": "end!",
+"type": "condition"
+},
+"5": {
+"character": "",
+"next_id": "6",
+"parent_id": "4",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "to_text"
+} ],
+"value_in_text": "{{current_interactable.get_parent().to_text}}"
+} ],
+"text": "Go {{current_interactable.get_parent().to_text}}?",
+"translation_key": "Go {{current_interactable.get_parent().to_text}}?",
+"type": "dialogue"
+},
+"6": {
+"next_id": "7",
+"next_id_after": "end!",
+"parent_id": "4",
+"replacements": [  ],
+"responses": PoolStringArray( "6", "9" ),
+"text": "Yes",
+"translation_key": "Yes",
+"type": "response"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "emit_signal",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "global_dialogue_finished"
+} ] ]
+} ]
+},
+"next_id": "8",
+"parent_id": "6",
+"type": "mutation"
+},
+"8": {
+"mutation": {
+"expression": [ {
+"function": "load_map",
+"type": "function",
+"value": [ [ {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "to"
+} ], [ {
+"type": "variable",
+"value": "current_map"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "name"
+} ] ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "6",
+"type": "mutation"
+},
+"9": {
+"next_id": "end",
+"next_id_after": "end!",
+"parent_id": "4",
+"replacements": [  ],
+"text": "No",
+"translation_key": "No",
+"type": "response"
+}
+}

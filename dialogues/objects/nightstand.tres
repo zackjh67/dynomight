@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 2
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+It's a nightstand"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "1"
+}
+lines = {
+"0": {
+"next_id": "1",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"1": {
+"character": "",
+"next_id": "",
+"replacements": [  ],
+"text": "It's a nightstand",
+"translation_key": "It's a nightstand",
+"type": "dialogue"
+}
+}

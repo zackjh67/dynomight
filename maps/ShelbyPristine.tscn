@@ -1,7 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://art/terrain/terrain.png" type="Texture" id=1]
 [ext_resource path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Laserfence.png" type="Texture" id=2]
+[ext_resource path="res://interactables/objects/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://helpers/PlayerPosition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://helpers/PlayerPositionsList.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Sidewalk_dark.png" type="Texture" id=6]
 [ext_resource path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Street.png" type="Texture" id=7]
 [ext_resource path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Building.png" type="Texture" id=8]
@@ -328,6 +331,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 2/shapes = [  ]
 2/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=29]
+resource_local_to_scene = true
+extents = Vector2( 17, 16 )
+
+[sub_resource type="RectangleShape2D" id=30]
+resource_local_to_scene = true
+extents = Vector2( 8, 12.5 )
+
 [node name="ShelbyPristine" type="YSort"]
 
 [node name="BottomLayer0" type="TileMap" parent="."]
@@ -594,6 +605,22 @@ cell_quadrant_size = 32
 format = 1
 tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
 
+[node name="Door" parent="Grandmas" instance=ExtResource( 3 )]
+position = Vector2( -4, 29 )
+locked = false
+to = "res://maps/interiors/grandmas_house_pristine/Default.tscn"
+
+[node name="CollisionShape2D" parent="Grandmas/Door/StaticBody2D" index="1"]
+shape = SubResource( 29 )
+
+[node name="AreaInteractable" parent="Grandmas/Door" index="1"]
+direction = "up"
+
+[node name="CollisionShape2D" parent="Grandmas/Door/AreaInteractable" index="0"]
+position = Vector2( 0, 16 )
+rotation = -1.57079
+shape = SubResource( 30 )
+
 [node name="Main Gas Station" type="Node2D" parent="."]
 position = Vector2( 920, -224 )
 
@@ -656,3 +683,13 @@ cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
 format = 1
 tile_data = PoolIntArray( -2, 0, 196613, -1, 0, 196614, -65536, 0, 196615, 65534, 0, 262149, 65535, 0, 262150, 0, 0, 262151, 131070, 0, 262149, 131071, 0, 327681, 65536, 0, 262151 )
+
+[node name="PlayerPositions" parent="." instance=ExtResource( 5 )]
+
+[node name="Default" parent="PlayerPositions" instance=ExtResource( 4 )]
+position = Vector2( 896, 1553 )
+direction = "d"
+
+[editable path="Grandmas/Door"]
+[editable path="Grandmas/Door/AreaInteractable"]
+[editable path="Grandmas/Door/AreaInteractable/Actions/DialogueAction"]

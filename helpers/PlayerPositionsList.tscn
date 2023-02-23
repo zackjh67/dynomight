@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://helpers/PlayerPosition.tscn" type="PackedScene" id=1]
+
+[node name="PlayerPositions" type="Node"]
+
+[node name="DefaultPosition" parent="." instance=ExtResource( 1 )]

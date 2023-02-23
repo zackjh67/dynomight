@@ -10,8 +10,6 @@ export(String, "Home",
  "Grandmas House (Player Room)", 
  "Explore Pristine Shelby") var level
 
-var score
-var current_map
 var maps_map = {
 	'Home': 'res://Home.tscn',
 	'Intro': 'res://IntroLvl.tscn',
@@ -24,9 +22,17 @@ var maps_map = {
 onready var player = $Player
 var bus
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	var resource = preload('res://dialogue.tres')
+#	DialogueManager.show_global_dialogue_balloon(\
+#	"this_is_a_node_title", \
+#	resource
+#	)
+	if player:
+		G.player = player
+	G.connect('global_dialogue_started', self, '_on_Dialogue_dialogue_started')
+	G.connect('global_dialogue_finished', self, '_on_Dialogue_dialogue_finished')
 	randomize()
 	new_game()
 
@@ -37,16 +43,11 @@ func _ready():
 
 
 func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
 	
 func new_game():
-	score = 0
-	$StartTimer.start()
-	$HUD.update_score(score)
 	#$HUD.show_message("Lets Get READY READY")
 	get_tree().call_group("mobs", "queue_free")
 	
@@ -55,27 +56,7 @@ func new_game():
 	print_debug('level: ', level)
 	if !level:
 		level = "Intro"
-	load_map(maps_map[level])
-
-func _on_ScoreTimer_timeout():
-	score += 1
-	$HUD.update_score(score)
-	
-func _on_StartTimer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
-		
-func load_map(map):
-	if current_map != null:
-		current_map.queue_free()
-	current_map = load(map).instance()
-	var scene = add_child(current_map)
-	
-	# spawn player in desired position
-	for child in current_map.get_children():
-		if child is Position2D and child.name == 'PlayerStartPosition' and player:
-			player.position = child.position
-			pass
+	G.load_map(maps_map[level])
 
 # pause player movement and interacting when global dialogue is open
 func _on_Dialogue_dialogue_started():

@@ -11,16 +11,8 @@
 script = ExtResource( 1 )
 level = "Grandmas House (Default)"
 
-[node name="MobTimer" type="Timer" parent="."]
-
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 256, 128 )
-
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 visible = false
