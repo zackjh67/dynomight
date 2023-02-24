@@ -4,17 +4,17 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 9
+resource_version = 14
 syntax_version = 2
 raw_text = "~ this_is_a_node_title
 
-if current_interactable.get_parent().locked
+if current_interactable.get_parent().locked and !current_interactable.get_parent().can_open
 	{{current_interactable.get_parent().locked_message}}
 else
 	Go {{current_interactable.get_parent().to_text}}?
 	- Yes
 		do emit_signal(\"global_dialogue_finished\")
-		do load_map(current_interactable.get_parent().to, current_map.name)
+		do current_interactable.get_parent().door_entered(player)
 	- No => END"
 errors = [  ]
 titles = {
@@ -42,6 +42,25 @@ lines = {
 }, {
 "type": "variable",
 "value": "locked"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "current_interactable"
+}, {
+"type": "dot"
+}, {
+"function": "get_parent",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "can_open"
 } ]
 },
 "next_conditional_id": "4",
@@ -135,9 +154,6 @@ lines = {
 "8": {
 "mutation": {
 "expression": [ {
-"function": "load_map",
-"type": "function",
-"value": [ [ {
 "type": "variable",
 "value": "current_interactable"
 }, {
@@ -149,16 +165,11 @@ lines = {
 }, {
 "type": "dot"
 }, {
+"function": "door_entered",
+"type": "function",
+"value": [ [ {
 "type": "variable",
-"value": "to"
-} ], [ {
-"type": "variable",
-"value": "current_map"
-}, {
-"type": "dot"
-}, {
-"type": "variable",
-"value": "name"
+"value": "player"
 } ] ]
 } ]
 },

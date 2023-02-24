@@ -10,11 +10,11 @@ region = Rect2( 32, 160, 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=43]
 resource_local_to_scene = true
-extents = Vector2( 33, 16 )
+extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=44]
 resource_local_to_scene = true
-extents = Vector2( 29.5, 6.25 )
+extents = Vector2( 28, 3.125 )
 
 [node name="Door" type="Node2D"]
 script = ExtResource( 3 )
@@ -29,7 +29,7 @@ position = Vector2( 32, 0 )
 texture = SubResource( 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 15, 0 )
+position = Vector2( 16, 0 )
 shape = SubResource( 43 )
 
 [node name="AreaInteractable" parent="." instance=ExtResource( 2 )]
@@ -37,7 +37,7 @@ position = Vector2( 40, 4 )
 direction = "down"
 
 [node name="CollisionShape2D" parent="AreaInteractable" index="0"]
-position = Vector2( -25.5, -20 )
+position = Vector2( -24, -16.875 )
 shape = SubResource( 44 )
 
 [node name="DialogueConfig" parent="AreaInteractable/Actions/DialogueAction" index="0"]

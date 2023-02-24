@@ -19,18 +19,19 @@ var maps_map = {
 	'Explore Pristine Shelby': 'res://IntroLvl.tscn',
 }
 
+var player_direction_map = {
+	'u': Vector2.UP,
+	'd': Vector2.DOWN,
+	'l': Vector2.LEFT,
+	'r': Vector2.RIGHT,
+}
+
 onready var player = $Player
+onready var scene_switcher = $SceneSwitcher
 var bus
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	var resource = preload('res://dialogue.tres')
-#	DialogueManager.show_global_dialogue_balloon(\
-#	"this_is_a_node_title", \
-#	resource
-#	)
-	if player:
-		G.player = player
 	G.connect('global_dialogue_started', self, '_on_Dialogue_dialogue_started')
 	G.connect('global_dialogue_finished', self, '_on_Dialogue_dialogue_finished')
 	randomize()
@@ -56,7 +57,8 @@ func new_game():
 	print_debug('level: ', level)
 	if !level:
 		level = "Intro"
-	G.load_map(maps_map[level])
+	print('emitting')
+	scene_switcher.change_level(maps_map[level])
 
 # pause player movement and interacting when global dialogue is open
 func _on_Dialogue_dialogue_started():
@@ -69,3 +71,6 @@ func _on_Dialogue_dialogue_finished():
 	player.allow_tile_interaction = true
 	player.allow_interaction = true
 	player.can_move = true
+	
+func point_player(direction):
+	player.get_node('AnimationTree')["parameters/Idle/blend_position"] = player_direction_map[direction]
