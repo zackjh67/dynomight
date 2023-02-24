@@ -1,0 +1,96 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 14
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+
+It looks delicious!
+Eat the milk noodles?
+- Yes
+	Yum! I have so much energy now!
+	set scene_switcher.current_level.snack_ate = true
+- No => END"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"2": {
+"character": "",
+"next_id": "3",
+"replacements": [  ],
+"text": "It looks delicious!",
+"translation_key": "It looks delicious!",
+"type": "dialogue"
+},
+"3": {
+"character": "",
+"next_id": "4",
+"replacements": [  ],
+"text": "Eat the milk noodles?",
+"translation_key": "Eat the milk noodles?",
+"type": "dialogue"
+},
+"4": {
+"next_id": "5",
+"next_id_after": "end!",
+"replacements": [  ],
+"responses": PoolStringArray( "4", "7" ),
+"text": "Yes",
+"translation_key": "Yes",
+"type": "response"
+},
+"5": {
+"character": "",
+"next_id": "6",
+"parent_id": "4",
+"replacements": [  ],
+"text": "Yum! I have so much energy now!",
+"translation_key": "Yum! I have so much energy now!",
+"type": "dialogue"
+},
+"6": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "scene_switcher"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "current_level"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "snack_ate"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "end!",
+"parent_id": "4",
+"type": "mutation"
+},
+"7": {
+"next_id": "end",
+"next_id_after": "end!",
+"replacements": [  ],
+"text": "No",
+"translation_key": "No",
+"type": "response"
+}
+}

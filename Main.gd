@@ -5,17 +5,17 @@ export(PackedScene) var mob_scene
 # for debugging
 export(String, "Home",
  "Intro",
- "Grandmas House (Default)",
- "Grandmas House (Basement)",
- "Grandmas House (Player Room)", 
+ "Grandmas House Pristine (Default)",
+ "Grandmas House Pristine (Basement)",
+ "Grandmas House Pristine (Player Room)", 
  "Explore Pristine Shelby") var level
 
 var maps_map = {
 	'Home': 'res://Home.tscn',
 	'Intro': 'res://IntroLvl.tscn',
-	'Grandmas House (Default)': "res://maps/interiors/grandmas_house_pristine/Default.tscn",
-	'Grandmas House (Basement)': "res://maps/interiors/grandmas_house_pristine/Basement.tscn",
-	'Grandmas House (Player Room)': "res://maps/interiors/grandmas_house_pristine/PlayerRoom.tscn",
+	'Grandmas House Pristine (Default)': "res://maps/interiors/grandmas_house_pristine/Default.tscn",
+	'Grandmas House Pristine (Basement)': "res://maps/interiors/grandmas_house_pristine/Basement.tscn",
+	'Grandmas House Pristine (Player Room)': "res://maps/interiors/grandmas_house_pristine/PlayerRoom.tscn",
 	'Explore Pristine Shelby': 'res://IntroLvl.tscn',
 }
 
@@ -57,20 +57,15 @@ func new_game():
 	print_debug('level: ', level)
 	if !level:
 		level = "Intro"
-	print('emitting')
 	scene_switcher.change_level(maps_map[level])
 
 # pause player movement and interacting when global dialogue is open
 func _on_Dialogue_dialogue_started():
-	player.allow_tile_interaction = false
-	player.allow_interaction = false
-	player.can_move = false
+	player.disable()
 
 
 func _on_Dialogue_dialogue_finished():
-	player.allow_tile_interaction = true
-	player.allow_interaction = true
-	player.can_move = true
+	player.enable()
 	
 func point_player(direction):
 	player.get_node('AnimationTree')["parameters/Idle/blend_position"] = player_direction_map[direction]

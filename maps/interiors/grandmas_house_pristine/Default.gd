@@ -1,14 +1,17 @@
 extends YSort
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var snack_ate = false
 
+func action_finished():
+	var noodles = get_node("noodles")
+	if noodles and snack_ate:
+		remove_child(noodles)
+		$Doors/Outside.locked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$noodles/AreaInteractable/Actions/DialogueAction.connect('action_finished', self, 'action_finished')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

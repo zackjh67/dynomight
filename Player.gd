@@ -6,9 +6,9 @@ signal hit
 export var speed = 200 #how fast the player will move (pixels/sec)
 var screen_size # size of the game window
 var approached_tile
-var allow_tile_interaction = true
-var allow_interaction = true
-var can_move = true
+export var allow_tile_interaction = true
+export var allow_interaction = true
+export var can_move = true
 var velocity
 
 var obj_messages = Constants.interactable_object_messages
@@ -98,3 +98,13 @@ func start(pos):
 	position = pos
 	show()
 	#$CollisionShape2D.disabled = false
+	
+func enable():
+	allow_tile_interaction = true
+	allow_interaction = true
+	can_move = true
+	
+func disable():
+	allow_tile_interaction = false
+	allow_interaction = false
+	can_move = false

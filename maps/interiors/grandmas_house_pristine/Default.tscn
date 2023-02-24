@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://art/random/PathAndObjects.png" type="Texture" id=1]
 [ext_resource path="res://maps/interiors/grandmas_house_pristine/house_objects.tres" type="TileSet" id=2]
+[ext_resource path="res://interactables/objects/milk_noodles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interactables/objects/nightstand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interactables/objects/DoobleDoor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://maps/interiors/grandmas_house_pristine/Default.gd" type="Script" id=7]
@@ -93,6 +94,7 @@ position = Vector2( -112, 40 )
 
 [node name="GrandmasRoom" parent="Doors" instance=ExtResource( 8 )]
 position = Vector2( 48, -304 )
+locked_message = "Grandma is sleeping right now. Don't wake her up!"
 
 [node name="Basement" parent="Doors" instance=ExtResource( 8 )]
 position = Vector2( 48, -176 )
@@ -121,7 +123,7 @@ dialogue_path = "res://dialogues/objects/doors/grandmas_house/my_room.tres"
 
 [node name="Outside" parent="Doors" instance=ExtResource( 6 )]
 position = Vector2( -16, 112 )
-can_open = true
+locked_message = "I'm too tired to go outside right now."
 to = "res://maps/ShelbyPristine.tscn"
 to_text = "outside"
 
@@ -138,6 +140,16 @@ position = Vector2( 0, 76 )
 
 [node name="PlayerRoom" parent="PlayerPositions" instance=ExtResource( 9 )]
 position = Vector2( -176, -432 )
+direction = "l"
+
+[node name="IntroLvl" parent="PlayerPositions" instance=ExtResource( 9 )]
+position = Vector2( 0, 76 )
+
+[node name="Basement" parent="PlayerPositions" instance=ExtResource( 9 )]
+position = Vector2( 16, -180 )
+
+[node name="noodles" parent="." instance=ExtResource( 3 )]
+position = Vector2( -106, -73 )
 
 [editable path="Doors/Basement"]
 [editable path="Doors/Basement/AreaInteractable"]

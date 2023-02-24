@@ -111,6 +111,9 @@ parameters/playback = SubResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -63, -1007 )
+allow_tile_interaction = false
+allow_interaction = false
+can_move = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -47 )

@@ -13,6 +13,16 @@ func _ready():
 
 
 func change_level(to):
+	main.get_node('TransitionLayer/AnimationPlayer').play('fade_in')
+	
+	if to == "res://IntroLvl.tscn":
+		player.disable()
+		player.hide()
+	elif current_level and current_level.name == 'IntroLvl' and to == "res://maps/interiors/grandmas_house_pristine/Default.tscn":
+		player.enable()
+		player.show()
+		player.get_node('Camera2D').current = true
+		
 	var from
 	var next_level = load(to).instance()
 	add_child(next_level)
@@ -21,7 +31,7 @@ func change_level(to):
 		current_level.queue_free()
 	current_level = next_level
 	
-	yield(get_tree().create_timer(0.2), 'timeout')
+	yield(get_tree().create_timer(0.001), 'timeout')
 	
 	if from:
 		var default_position
@@ -38,4 +48,6 @@ func change_level(to):
 		else:
 			player.position = default_position.position
 			main.point_player(default_position.direction)
+	
+	main.get_node('TransitionLayer/AnimationPlayer').play('fade_out')
 	emit_signal('level_changed')
