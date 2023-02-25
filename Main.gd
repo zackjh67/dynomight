@@ -16,7 +16,7 @@ var maps_map = {
 	'Grandmas House Pristine (Default)': "res://maps/interiors/grandmas_house_pristine/Default.tscn",
 	'Grandmas House Pristine (Basement)': "res://maps/interiors/grandmas_house_pristine/Basement.tscn",
 	'Grandmas House Pristine (Player Room)': "res://maps/interiors/grandmas_house_pristine/PlayerRoom.tscn",
-	'Explore Pristine Shelby': 'res://IntroLvl.tscn',
+	'Explore Pristine Shelby': 'res://maps/ShelbyPristine.tscn',
 }
 
 var player_direction_map = {
@@ -27,7 +27,7 @@ var player_direction_map = {
 }
 
 onready var player = $Player
-onready var scene_switcher = $SceneSwitcher
+onready var scene_manager = $SceneManager
 var bus
 
 # Called when the node enters the scene tree for the first time.
@@ -57,7 +57,7 @@ func new_game():
 	print_debug('level: ', level)
 	if !level:
 		level = "Intro"
-	scene_switcher.change_level(maps_map[level])
+	scene_manager.change_level(maps_map[level])
 
 # pause player movement and interacting when global dialogue is open
 func _on_Dialogue_dialogue_started():

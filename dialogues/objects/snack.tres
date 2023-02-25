@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 14
+resource_version = 15
 syntax_version = 2
 raw_text = "~ this_is_a_node_title
 
@@ -12,7 +12,7 @@ It looks delicious!
 Eat the milk noodles?
 - Yes
 	Yum! I have so much energy now!
-	set scene_switcher.current_level.snack_ate = true
+	set scene_manager.current_level.snack_ate = true
 - No => END"
 errors = [  ]
 titles = {
@@ -62,7 +62,7 @@ lines = {
 "mutation": {
 "expression": [ {
 "type": "variable",
-"value": "scene_switcher"
+"value": "scene_manager"
 }, {
 "type": "dot"
 }, {

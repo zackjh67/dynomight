@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://helpers/SceneManager.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "daynight"
+length = 86400.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 21, 43200, 86395 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0431373, 0.0431373, 0.0431373, 0.823529 ), Color( 0.0431373, 0.0431373, 0.0431373, 0 ), Color( 0.0431373, 0.0431373, 0.0431373, 0.823529 ) ]
+}
+
+[node name="SceneManager" type="YSort"]
+script = ExtResource( 1 )
+time_override = {
+"hour": 23,
+"minute": 0,
+"second": 0
+}
+
+[node name="TODTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0431373, 0.0431373, 0.0431373, 0.764639 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "daynight"
+anims/daynight = SubResource( 1 )
+
+[connection signal="timeout" from="TODTimer" to="." method="_on_TODTimer_timeout"]

@@ -56,6 +56,9 @@ tile_data = PoolIntArray( 196603, -1073741820, 393220, 196606, 4, 327685, 262139
 
 [node name="PlayerPositions" parent="." instance=ExtResource( 4 )]
 
+[node name="DefaultPosition" parent="PlayerPositions" index="0"]
+position = Vector2( 52, 87 )
+
 [node name="Default" parent="PlayerPositions" instance=ExtResource( 2 )]
 position = Vector2( 47, 8 )
 direction = "r"
@@ -75,6 +78,7 @@ shape = SubResource( 2 )
 position = Vector2( 9, 0 )
 shape = SubResource( 3 )
 
+[editable path="PlayerPositions"]
 [editable path="Door"]
 [editable path="Door/AreaInteractable"]
 [editable path="Door/AreaInteractable/Actions/DialogueAction"]

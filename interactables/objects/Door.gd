@@ -8,7 +8,7 @@ export var to_text:String = 'inside'
 
 func door_entered(body):
 	if body.name == 'Player':
-		G.scene_switcher.change_level(to)
+		G.scene_manager.change_level(to)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

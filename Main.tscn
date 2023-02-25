@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://helpers/SceneSwitcher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://helpers/SceneManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://art/gameover.wav" type="AudioStream" id=5]
@@ -40,7 +40,7 @@ tracks/0/keys = {
 
 [node name="Main" type="YSort"]
 script = ExtResource( 1 )
-level = "Grandmas House Pristine (Default)"
+level = "Explore Pristine Shelby"
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -72,7 +72,7 @@ anims/fade_out = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="SceneSwitcher" parent="." instance=ExtResource( 2 )]
+[node name="SceneManager" parent="." instance=ExtResource( 2 )]
 
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_Dialogue_dialogue_finished"]
 [connection signal="dialogue_started" from="Dialogue" to="." method="_on_Dialogue_dialogue_started"]

@@ -80,10 +80,10 @@ extents = Vector2( 26, 14.5 )
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 20, 32 )
 
-[node name="IntroLvl" type="YSort" groups=["action_scene"]]
+[node name="IntroLvl" type="YSort" groups=["action_scene", "outdoors"]]
 script = ExtResource( 3 )
 
-[node name="ShelbyPristine" parent="." instance=ExtResource( 1 )]
+[node name="ShelbyPristine" parent="." groups=["outdoors"] instance=ExtResource( 1 )]
 
 [node name="Jennay" parent="." instance=ExtResource( 2 )]
 position = Vector2( -63, -1054 )

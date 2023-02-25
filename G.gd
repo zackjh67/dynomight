@@ -8,7 +8,7 @@ onready var Dialogue = get_node("/root/Main/Dialogue")
 var FAST_FORWARD:float = 7
 
 var current_interactable
-var scene_switcher
+var scene_manager
 
 export var player_direction:Vector2 = Vector2.UP
 

@@ -254,7 +254,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Sprite:frame_coords")
 parameters/playback = SubResource( 62 )
-parameters/Idle/blend_position = Vector2( 0, 0.05 )
-parameters/Walk/blend_position = Vector2( -0.763898, -0.442088 )
+parameters/Idle/blend_position = Vector2( 0.000925064, 0.00555563 )
+parameters/Walk/blend_position = Vector2( -0.000925064, -0.00555551 )
 
 [connection signal="hit" from="." to="." method="_on_Player_hit"]
