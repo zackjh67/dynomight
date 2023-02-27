@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 15
+resource_version = 18
 syntax_version = 2
 raw_text = "~ this_is_a_node_title
 
@@ -12,7 +12,7 @@ It looks delicious!
 Eat the milk noodles?
 - Yes
 	Yum! I have so much energy now!
-	set scene_manager.current_level.snack_ate = true
+	do scene_manager.current_level.state.set(\"snack_ate\", true)
 - No => END"
 errors = [  ]
 titles = {
@@ -72,13 +72,19 @@ lines = {
 "type": "dot"
 }, {
 "type": "variable",
+"value": "state"
+}, {
+"type": "dot"
+}, {
+"function": "set",
+"type": "function",
+"value": [ [ {
+"type": "string",
 "value": "snack_ate"
-}, {
-"type": "assignment",
-"value": "="
-}, {
+} ], [ {
 "type": "bool",
 "value": true
+} ] ]
 } ]
 },
 "next_id": "end!",

@@ -15,7 +15,8 @@ func _ready():
 	var timeDict = OS.get_time();
 	var hour = timeDict.hour;
 	var minute = timeDict.minute;
-	var current_time_in_seconds = (hour * 3600) + (minute * 60) + timeDict.second
+	var second = timeDict.second;
+	var current_time_in_seconds = (hour * 3600) + (minute * 60) + second
 	print('time in seconds!: ', current_time_in_seconds)
 	
 	if time_override.hour:

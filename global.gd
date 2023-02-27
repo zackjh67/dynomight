@@ -4,6 +4,10 @@ signal global_dialogue_started
 signal global_dialogue_finished
 
 onready var Dialogue = get_node("/root/Main/Dialogue")
+onready var game_state = get_node("/root/Main/State/GameState")
+onready var player_state = get_node("/root/Main/State/PlayerState")
+onready var level_state = get_node("/root/Main/State/LevelState")
+onready var persistent_state = get_node("/root/Main/State/PersistentState")
 
 var FAST_FORWARD:float = 7
 

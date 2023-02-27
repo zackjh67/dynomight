@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "DialogueResource",
 "language": "GDScript",
 "path": "res://addons/dialogue_manager/dialogue_resource.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://state/State.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
 "DialogueConfig": "",
-"DialogueResource": ""
+"DialogueResource": "",
+"State": ""
 }
 
 [application]
@@ -39,8 +45,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Constants="*res://constants.gd"
-G="*res://G.gd"
+G="*res://global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+H="*res://helpers.gd"
 
 [display]
 

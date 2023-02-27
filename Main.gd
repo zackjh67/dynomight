@@ -52,7 +52,7 @@ func new_game():
 	#$HUD.show_message("Lets Get READY READY")
 	get_tree().call_group("mobs", "queue_free")
 	
-	$Music.play()
+#	$Music.play()
 	
 	print_debug('level: ', level)
 	if !level:
