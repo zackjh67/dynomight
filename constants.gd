@@ -1,5 +1,9 @@
 extends Node
 
+var state_keys = {
+	'GRANDMAS_PRISTINE_DEFAULT': 'Pristine.Grandmas.Default',
+}
+
 # Declare member variables here. Examples:
 var interactable_object_messages = {
 	'my_bed': "I'm not tired right now.",
