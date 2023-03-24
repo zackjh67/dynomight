@@ -3,6 +3,7 @@ extends State
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print('persistent state ready')
+	#	TODO load the save files and then put that shit into persistent state
 	pass # Replace with function body.
 	
 func get(key):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://art/characters/main2.png" type="Texture" id=1]
+[ext_resource path="res://art/characters/generic assetts/Xmas/pipo-xmaschara02.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=40]
@@ -254,7 +254,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Sprite:frame_coords")
 parameters/playback = SubResource( 62 )
-parameters/Idle/blend_position = Vector2( 0.000925064, 0.00555563 )
-parameters/Walk/blend_position = Vector2( -0.000925064, -0.00555551 )
+parameters/Idle/blend_position = Vector2( 0, 0.0422919 )
+parameters/Walk/blend_position = Vector2( 0, 0.00136423 )
 
 [connection signal="hit" from="." to="." method="_on_Player_hit"]

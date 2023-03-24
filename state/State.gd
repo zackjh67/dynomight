@@ -22,10 +22,8 @@ func init(key, init_state):
 	
 		# load in persistent state variables for overrides
 		var overrides = G.persistent_state.get(key_name)
-		print('overrides!! ', overrides)
 		if overrides:
 			var overwritten = H.merge_dict(persisting_values, overrides)
-			print('overwritten: ', overwritten)
 			state = H.merge_dict(state, overwritten)
 		else:
 			# no overrides so convert config dictionaries to their values
