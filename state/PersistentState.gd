@@ -1,4 +1,6 @@
-extends State
+extends Node
+
+var state = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -6,11 +8,11 @@ func _ready():
 	#	TODO load the save files and then put that shit into persistent state
 	pass # Replace with function body.
 	
-func get(key):
+func _get(key):
 	var tree:Array = key.split('.')
 	return get_fruit(state, tree)
 
-func set(key, val):
+func _set(key, val):
 	var branches:Array = key.split('.')
 	return climb_tree(state, branches, val)
 

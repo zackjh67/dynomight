@@ -1,8 +1,8 @@
 extends Node2D
 
 
-export onready var radius:float = $Area2D/CollisionShape2D.shape.radius
-export var proximity_messages = []
+@export onready var radius:float = $Area2D/CollisionShape2D.shape.radius
+@export var proximity_messages = []
 
 
 # Called when the node enters the scene tree for the first time.

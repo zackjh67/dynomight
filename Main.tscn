@@ -1,81 +1,106 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://batio02kihs73"]
 
-[ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://helpers/SceneManager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/gameover.wav" type="AudioStream" id=5]
-[ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://state/PlayerState.tscn" type="PackedScene" id=7]
-[ext_resource path="res://state/GameState.tscn" type="PackedScene" id=8]
-[ext_resource path="res://state/PersistentState.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Dialogue.tscn" type="PackedScene" id=10]
+[ext_resource type="Script" path="res://Main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://helpers/SceneManager.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ce546vfrlbwyo" path="res://Player.tscn" id="3"]
+[ext_resource type="AudioStream" uid="uid://ck0snp608p42h" path="res://art/gameover.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://vtywkmvpgpmq" path="res://art/House In a Forest Loop.ogg" id="6"]
+[ext_resource type="PackedScene" path="res://state/PlayerState.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://state/GameState.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://state/PersistentState.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://Dialogue.tscn" id="10"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "fade_in"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "fade_out"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[node name="Main" type="YSort"]
-script = ExtResource( 1 )
-level = "Explore Pristine Shelby"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xb4jq"]
+_data = {
+"fade_in": SubResource("1"),
+"fade_out": SubResource("2")
+}
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
-visible = false
+[sub_resource type="Animation" id="Animation_yqu6k"]
+resource_name = "daynight"
+length = 86400.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(21, 43200, 86395),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0431373, 0.0431373, 0.0431373, 0.823529), Color(0.0431373, 0.0431373, 0.0431373, 0), Color(0.0431373, 0.0431373, 0.0431373, 0.823529)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pkd1j"]
+_data = {
+"daynight": SubResource("Animation_yqu6k")
+}
+
+[node name="Main" type="Node2D" groups=["main"]]
+script = ExtResource("1")
+level = "Grandmas House Pristine (Default)"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource("6")
 volume_db = -33.21
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource("5")
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer"]
-anims/fade_in = SubResource( 1 )
-anims/fade_out = SubResource( 2 )
+libraries = {
+"": SubResource("AnimationLibrary_xb4jq")
+}
 
-[node name="Dialogue" parent="." instance=ExtResource( 10 )]
+[node name="Dialogue" parent="." instance=ExtResource("10")]
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource("3")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
 
-[node name="SceneManager" parent="." instance=ExtResource( 2 )]
+[node name="SceneManager" parent="." instance=ExtResource("2")]
 time_override = {
 "hour": 12,
 "minute": 0,
@@ -83,17 +108,25 @@ time_override = {
 }
 
 [node name="ColorRect" parent="SceneManager/CanvasLayer" index="0"]
-color = Color( 0.0431373, 0.0431373, 0.0431373, 0.823529 )
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 0.823529)
+
+[node name="AnimationPlayer" parent="SceneManager/CanvasLayer" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_pkd1j")
+}
 
 [node name="State" type="Node" parent="."]
 
-[node name="GameState" parent="State" instance=ExtResource( 8 )]
+[node name="GameState" parent="State" instance=ExtResource("8")]
 
-[node name="PlayerState" parent="State" instance=ExtResource( 7 )]
+[node name="PlayerState" parent="State" instance=ExtResource("7")]
 
 [node name="LevelState" type="Node" parent="State"]
 
-[node name="PersistentState" parent="State" instance=ExtResource( 9 )]
+[node name="PersistentState" parent="State" instance=ExtResource("9")]
 
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_Dialogue_dialogue_finished"]
 [connection signal="dialogue_started" from="Dialogue" to="." method="_on_Dialogue_dialogue_started"]

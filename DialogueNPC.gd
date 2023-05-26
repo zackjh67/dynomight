@@ -3,17 +3,17 @@ extends Node2D
 signal dialogue_closed
 signal message_finished
 
-export var messages = []
+@export var messages = []
 
-export var keep_message = false
+@export var keep_message = false
 
-export var typing_speed = Constants.DEFAULT_DIALOGUE_SPEED/G.FAST_FORWARD
-export var read_time = 2/G.FAST_FORWARD
+@export var typing_speed = Constants.DEFAULT_DIALOGUE_SPEED/G.FAST_FORWARD
+@export var read_time = 2/G.FAST_FORWARD
 
 var current_message = 0
 var display = ""
 var current_char = 0
-export var done_processing_messages = false
+@export var done_processing_messages = false
 
 func _ready():
 	

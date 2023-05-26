@@ -1,23 +1,23 @@
-extends KinematicBody2D
+extends CharacterBody2D
 signal hit
 
 
 # Declare member variables here. Examples:
-export var speed = 200 #how fast the player will move (pixels/sec)
+@export var speed = 200 #how fast the player will move (pixels/sec)
 var screen_size # size of the game window
 var approached_tile
-export var allow_tile_interaction = true
-export var allow_interaction = true
-export var can_move = true
-var velocity
+@export var allow_tile_interaction = true
+@export var allow_interaction = true
+@export var can_move = true
 
 var obj_messages = Constants.interactable_object_messages
-onready var dialogue = G.Dialogue
-onready var anim_state_machine = $AnimationTree["parameters/playback"]
+@onready var dialogue = G.Dialogue
+@onready var anim_state_machine = $AnimationTree["parameters/playback"]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print('wtf')
 	screen_size = get_viewport_rect().size
 	#hide()
 
@@ -25,12 +25,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var last_rotation = 0
 func _physics_process(delta):
+	print_debug('fuck')
 	# the player can't do anything if dialogue is open
 	if can_move:
 		velocity = Vector2.ZERO
 		var direction = Vector2()
 		
 		if Input.is_action_pressed("move_right"):
+			print('fuckkkk')
 			velocity.x += 1
 			direction = Vector2.RIGHT
 		elif Input.is_action_pressed("move_left"):
@@ -62,13 +64,15 @@ func _physics_process(delta):
 				$AnimationTree.set('parameters/Walk/blend_position', velocity)
 			
 			#move the player
-			velocity = move_and_slide(velocity * speed)
+			set_velocity(velocity * speed)
+			move_and_slide()
+			velocity = velocity
 			
 			# set interactable tile name if colliding into one
-			for i in get_slide_count():
+			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				if collision.collider.name == "TopLayer":
-					var pos = collision.collider.world_to_map(collision.position)
+					var pos = collision.collider.local_to_map(collision.position)
 					var id = collision.collider.get_cellv(pos - collision.normal)
 					approached_tile = collision.collider.tile_set.tile_get_name(id)
 

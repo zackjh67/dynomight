@@ -1,7 +1,7 @@
-extends Position2D
+extends Marker2D
 
 
-export var direction:String = 'u'
+@export var direction:String = 'u'
 
 
 # Called when the node enters the scene tree for the first time.

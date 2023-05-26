@@ -10,5 +10,5 @@ func _interact():
 		$DialogueConfig.node_title, \
 		load($DialogueConfig.dialogue_path)
 	)
-	yield(DialogueManager, 'dialogue_finished')
+	await DialogueManager.dialogue_finished
 	G.emit_signal('global_dialogue_finished')

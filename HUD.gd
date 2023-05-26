@@ -20,13 +20,13 @@ func show_game_over():
 	show_message("Game Over")
 	
 	#wait until the messagetimer has counted down
-	yield($MessageTimer, "timeout")
+	await $MessageTimer.timeout
 	
 	$Message.text = "Dodge the\nCreeps!"
 	$Message.show()
 	
 	#make a one-shot timer and wait for it to finish... this is basically await sleep(1)
-	yield(get_tree().create_timer(1), "timeout") #first param is a newly created timer, second is the signal you are waiting for
+	await get_tree().create_timer(1).timeout #first param is a newly created timer, second is the signal you are waiting for
 	$StartButton.show()
 
 func update_score(score):

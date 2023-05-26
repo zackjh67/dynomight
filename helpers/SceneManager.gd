@@ -2,8 +2,8 @@ extends Node
 
 var current_level
 var player
-onready var main = get_parent()
-export var time_override = {
+@onready var main = get_parent()
+@export var time_override = {
 	'hour': null,
 	'minute': 0,
 	'second': 0,
@@ -12,7 +12,7 @@ export var time_override = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var timeDict = OS.get_time();
+	var timeDict = Time.get_time_dict_from_system();
 	var hour = timeDict.hour;
 	var minute = timeDict.minute;
 	var second = timeDict.second;
@@ -44,7 +44,7 @@ func change_level(to):
 		player.get_node('Camera2D').current = true
 		
 	var from
-	var next_level = load(to).instance()
+	var next_level = load(to).instantiate()
 	add_child(next_level)
 	if current_level:
 		from = current_level.name
@@ -52,15 +52,17 @@ func change_level(to):
 	current_level = next_level
 	
 	# TODO this is a crappy temp fix. fix the bad fix.
-	yield(get_tree().create_timer(0.001), 'timeout')
+	await get_tree().create_timer(0.001).timeout
 	
 	var default_position
 	var position
+	print('current level wtf!: ', current_level.get_children())
+
 	# spawn player in desired position
 	for child in current_level.get_node('PlayerPositions').get_children():
-		if child is Position2D and child.name == 'DefaultPosition' and player:
+		if child is Marker2D and child.name == 'DefaultPosition' and player:
 			default_position = child
-		if child is Position2D and child.name == from and player:
+		if child is Marker2D and child.name == from and player:
 			position = child
 	if position:
 		player.position = position.position

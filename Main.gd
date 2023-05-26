@@ -1,14 +1,12 @@
 extends Node
 
-export(PackedScene) var mob_scene
-
 # for debugging
-export(String, "Home",
+@export_enum("Home",
  "Intro",
  "Grandmas House Pristine (Default)",
  "Grandmas House Pristine (Basement)",
  "Grandmas House Pristine (Player Room)", 
- "Explore Pristine Shelby") var level
+ "Explore Pristine Shelby") var level:String
 
 var maps_map = {
 	'Home': 'res://Home.tscn',
@@ -26,14 +24,20 @@ var player_direction_map = {
 	'r': Vector2.RIGHT,
 }
 
-onready var player = $Player
-onready var scene_manager = $SceneManager
+@onready var player = $Player
+@onready var scene_manager = $SceneManager
 var bus
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	G.connect('global_dialogue_started', self, '_on_Dialogue_dialogue_started')
-	G.connect('global_dialogue_finished', self, '_on_Dialogue_dialogue_finished')
+	G.Dialogue = $Dialogue;
+	G.game_stat = $State/GameState;
+	G.player_state = $State/PlayerState;
+	G.level_state = $State/LevelState;
+	G.persistent_state = $State/PersistentState;
+	
+	G.connect('global_dialogue_started', Callable(self, '_on_Dialogue_dialogue_started'))
+	G.connect('global_dialogue_finished', Callable(self, '_on_Dialogue_dialogue_finished'))
 	randomize()
 	new_game()
 
@@ -50,12 +54,12 @@ func game_over():
 	
 func new_game():
 	#$HUD.show_message("Lets Get READY READY")
-	get_tree().call_group("mobs", "queue_free")
+	#get_tree().call_group("mobs", "queue_free")
 	
 #	$Music.play()
 	
 	print_debug('level: ', level)
-	if !level:
+	if level == null:
 		level = "Intro"
 	scene_manager.change_level(maps_map[level])
 

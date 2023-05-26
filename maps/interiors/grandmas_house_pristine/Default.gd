@@ -1,6 +1,6 @@
-extends YSort
+extends Node2D
 
-onready var state = $State
+@onready var state = $State
 var _state_key = Constants.state_keys.GRANDMAS_PRISTINE_DEFAULT
 var _initial_state = {
 	'snack_ate': { 'value': false, '_persist': true },
@@ -17,7 +17,7 @@ func _ready():
 	if state.get('snack_ate'):
 		eat_the_noodles()
 	else:
-		$noodles/AreaInteractable/Actions/DialogueAction.connect('action_finished', self, 'action_finished')
+		$noodles/AreaInteractable/Actions/DialogueAction.connect('action_finished', Callable(self, 'action_finished'))
 
 func eat_the_noodles():
 	var noodles = get_node("noodles")

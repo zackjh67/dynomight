@@ -203,7 +203,7 @@ lines = {
 "next_id": "29",
 "next_id_after": "34",
 "replacements": [  ],
-"responses": PoolStringArray( "28", "30", "32", "33" ),
+"responses": PackedStringArray( "28", "30", "32", "33" ),
 "text": "First one",
 "translation_key": "First one",
 "type": "response"
@@ -274,7 +274,7 @@ lines = {
 "next_id": "5",
 "next_id_after": "22",
 "replacements": [  ],
-"responses": PoolStringArray( "4", "6", "8", "10", "12", "14", "16", "18", "20", "21" ),
+"responses": PackedStringArray( "4", "6", "8", "10", "12", "14", "16", "18", "20", "21" ),
 "text": "Firstd one",
 "translation_key": "Firstd one",
 "type": "response"

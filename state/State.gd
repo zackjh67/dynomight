@@ -13,11 +13,11 @@ func init(key, init_state):
 	var persisting_values = {}
 	if init_state:
 		#	find if key contains persisted data or not	
-		for key in init_state:
-			if init_state[key] is Dictionary:
-				if init_state[key].has('_persist') and init_state[key]['_persist']:
-					persist.push_front(key)
-					persisting_values[key] = init_state[key]['value']
+		for k in init_state:
+			if init_state[k] is Dictionary:
+				if init_state[k].has('_persist') and init_state[k]['_persist']:
+					persist.push_front(k)
+					persisting_values[k] = init_state[k]['value']
 		state = init_state
 	
 		# load in persistent state variables for overrides
@@ -27,23 +27,23 @@ func init(key, init_state):
 			state = H.merge_dict(state, overwritten)
 		else:
 			# no overrides so convert config dictionaries to their values
-			for key in state:
-				if state[key] is Dictionary and state[key].has('_persist'):
-					if state[key]['_persist']:
-						persist.push_front(key)
-					state[key] = state[key]['value']
+			for k in state:
+				if state[k] is Dictionary and state[k].has('_persist'):
+					if state[k]['_persist']:
+						persist.push_front(k)
+					state[k] = state[k]['value']
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-func get(key):
+func _get(key):
 	if state.has(key):
 		return state[key]
 	return null
 
-func set(key, val): 
+func _set(key, val): 
 	state[key] = val
 	if key in persist:
 		var key_str = "{a}.{b}".format({"a":key_name, "b": key})

@@ -12,8 +12,8 @@ var interactable_object_messages = {
 	}
 }
 
-export var DEFAULT_DIALOGUE_SPEED = 0.03
-export var GLOBAL_DIALOGUE_TIMEOUT = 2 #seconds
+@export var DEFAULT_DIALOGUE_SPEED = 0.03
+@export var GLOBAL_DIALOGUE_TIMEOUT = 2 #seconds
 
 
 # Called when the node enters the scene tree for the first time.

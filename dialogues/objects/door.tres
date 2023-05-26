@@ -131,7 +131,7 @@ lines = {
 "next_id_after": "end!",
 "parent_id": "4",
 "replacements": [  ],
-"responses": PoolStringArray( "6", "9" ),
+"responses": PackedStringArray( "6", "9" ),
 "text": "Yes",
 "translation_key": "Yes",
 "type": "response"

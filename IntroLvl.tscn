@@ -3,10 +3,10 @@
 [ext_resource path="res://maps/ShelbyPristine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPCs/BobsBurgersEnjoyer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://IntroLvl.gd" type="Script" id=3]
-[ext_resource path="res://art/characters/chad.png" type="Texture" id=4]
+[ext_resource path="res://art/characters/chad.png" type="Texture2D" id=4]
 [ext_resource path="res://DialogueNPC.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://art/characters/generic assetts/Soldier/Soldier 04-2.png" type="Texture" id=7]
+[ext_resource path="res://art/characters/generic assetts/Soldier/Soldier 04-2.png" type="Texture2D" id=7]
 [ext_resource path="res://NPCs/ProximityNPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actions/action.tscn" type="PackedScene" id=9]
 
@@ -18,47 +18,47 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -55, -1054, 0, 0, 0, 0, -56, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 97, 403, 0, 0, 0, 0, 96, 496, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 800, 400, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 256, 496, 0, 0, 0, 0, 256, 1184, 0, 0, 0, 0, 256, 1552, 0, 0, 0, 0, 192, 1552, 0, 0, 0, 0, 192, 1456 )
+"points": PackedVector2Array( 0, 0, 0, 0, -55, -1054, 0, 0, 0, 0, -56, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 32, 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 97, 403, 0, 0, 0, 0, 96, 496, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 800, 400, 0, 0, 0, 0, 800, 496, 0, 0, 0, 0, 256, 496, 0, 0, 0, 0, 256, 1184, 0, 0, 0, 0, 256, 1552, 0, 0, 0, 0, 192, 1552, 0, 0, 0, 0, 192, 1456 )
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1, 5.5 )
+size = Vector2( 1, 5.5 )
 
 [sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 10, 5 )
+size = Vector2( 10, 5 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -56, -1045, 0, 0, 0, 0, -56, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -260, -41, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, 95, 26, 0, 0, 0, 0, 96, 466, 0, 0, 0, 0, 752, 464, 0, 0, 0, 0, 224, 464, 0, 0, 0, 0, 224, 1136, 0, 0, 0, 0, 224, 1520, 0, 0, 0, 0, 680, 1520, 0, 0, 0, 0, 680, 1744, 0, 0, 0, 0, 600, 1744, 0, 0, 0, 0, 600, 1664 )
+"points": PackedVector2Array( 0, 0, 0, 0, -56, -1045, 0, 0, 0, 0, -56, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -260, -41, 0, 0, 0, 0, -260, -10, 0, 0, 0, 0, -247, -10, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, -248, 24, 0, 0, 0, 0, 95, 26, 0, 0, 0, 0, 96, 466, 0, 0, 0, 0, 752, 464, 0, 0, 0, 0, 224, 464, 0, 0, 0, 0, 224, 1136, 0, 0, 0, 0, 224, 1520, 0, 0, 0, 0, 680, 1520, 0, 0, 0, 0, 680, 1744, 0, 0, 0, 0, 600, 1744, 0, 0, 0, 0, 600, 1664 )
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 4.75, 10 )
+size = Vector2( 4.75, 10 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 1.75, 3.5 )
+size = Vector2( 1.75, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 33.25, 8 )
+size = Vector2( 33.25, 8 )
 
 [sub_resource type="RectangleShape2D" id=30]
-extents = Vector2( 6.5, 11.5 )
+size = Vector2( 6.5, 11.5 )
 
 [sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 10, 2 )
+size = Vector2( 10, 2 )
 
 [sub_resource type="Curve2D" id=8]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -44, -1075, 0, 0, 0, 0, -44, 47, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, -232, 40, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, 106, 51, 0, 0, 0, 0, 107, 362, 0, 0, 0, 0, 104, 472, 0, 0, 0, 0, 952, 472, 0, 0, 0, 0, 952, 536, 0, 0, 0, 0, 1104, 536, 0, 0, 0, 0, 1104, 456 )
+"points": PackedVector2Array( 0, 0, 0, 0, -44, -1075, 0, 0, 0, 0, -44, 47, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, -232, 40, 0, 0, 0, 0, -232, 48, 0, 0, 0, 0, 106, 51, 0, 0, 0, 0, 107, 362, 0, 0, 0, 0, 104, 472, 0, 0, 0, 0, 952, 472, 0, 0, 0, 0, 952, 536, 0, 0, 0, 0, 1104, 536, 0, 0, 0, 0, 1104, 456 )
 }
 
 [sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -63, -1007, 0, 0, 0, 0, -62.8481, -862.481, 0, 0, 0, 0, -64, 32, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, -274, 21, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, 76, 31, 0, 0, 0, 0, 76, 442, 0, 0, 0, 0, 80, 504, 0, 0, 0, 0, 816, 504, 0, 0, 0, 0, 224, 504, 0, 0, 0, 0, 224, 1248, 0, 0, 0, 0, 224, 1560, 0, 0, 0, 0, 752, 1560, 0, 0, 0, 0, 896, 1560, 0, 0, 0, 0, 896, 1480 )
+"points": PackedVector2Array( 0, 0, 0, 0, -63, -1007, 0, 0, 0, 0, -62.8481, -862.481, 0, 0, 0, 0, -64, 32, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, -274, 21, 0, 0, 0, 0, -274, 32, 0, 0, 0, 0, 76, 31, 0, 0, 0, 0, 76, 442, 0, 0, 0, 0, 80, 504, 0, 0, 0, 0, 816, 504, 0, 0, 0, 0, 224, 504, 0, 0, 0, 0, 224, 1248, 0, 0, 0, 0, 224, 1560, 0, 0, 0, 0, 752, 1560, 0, 0, 0, 0, 896, 1560, 0, 0, 0, 0, 896, 1480 )
 }
 
 [sub_resource type="RectangleShape2D" id=31]
-extents = Vector2( 9, 8 )
+size = Vector2( 9, 8 )
 
 [sub_resource type="RectangleShape2D" id=33]
 
@@ -75,12 +75,12 @@ resource_local_to_scene = true
 radius = 46.0435
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 26, 14.5 )
+size = Vector2( 26, 14.5 )
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 20, 32 )
+size = Vector2( 20, 32 )
 
-[node name="IntroLvl" type="YSort" groups=["action_scene", "outdoors"]]
+[node name="IntroLvl" type="Node2D" groups=["action_scene", "outdoors"]]
 script = ExtResource( 3 )
 
 [node name="ShelbyPristine" parent="." groups=["outdoors"] instance=ExtResource( 1 )]
@@ -94,7 +94,7 @@ parameters/playback = SubResource( 6 )
 [node name="Chad" parent="." instance=ExtResource( 2 )]
 position = Vector2( -48, -1029 )
 
-[node name="Sprite" parent="Chad" index="1"]
+[node name="Sprite2D" parent="Chad" index="1"]
 texture = ExtResource( 4 )
 
 [node name="AnimationTree" parent="Chad" index="3"]
@@ -103,7 +103,7 @@ parameters/playback = SubResource( 5 )
 [node name="Mickey" parent="." instance=ExtResource( 2 )]
 position = Vector2( -44, -1075 )
 
-[node name="Sprite" parent="Mickey" index="1"]
+[node name="Sprite2D" parent="Mickey" index="1"]
 texture = ExtResource( 7 )
 
 [node name="AnimationTree" parent="Mickey" index="3"]

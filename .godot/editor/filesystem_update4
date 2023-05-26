@@ -1,0 +1,9 @@
+res://default_env.tres
+res://Player.tscn
+res://dialogue_theme.tres
+res://maps/ShelbyPristine.tscn
+res://Main.tscn
+res://Player.gd
+res://helpers/PlayerPosition.gd
+res://global.gd
+res://Main.gd

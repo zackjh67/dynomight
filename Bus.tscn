@@ -1,3 +1,3 @@
 [gd_scene format=2]
 
-[node name="Bus" type="YSort"]
+[node name="Bus" type="Node2D"]

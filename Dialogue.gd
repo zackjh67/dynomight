@@ -14,7 +14,7 @@ func open_dialogue(config:DialogueConfig):
 	self.show()
 	$Label.text = config.text
 	if !config.keep:
-		yield(get_tree().create_timer(Constants.GLOBAL_DIALOGUE_TIMEOUT/G.FAST_FORWARD), "timeout")
+		await get_tree().create_timer(Constants.GLOBAL_DIALOGUE_TIMEOUT/G.FAST_FORWARD).timeout
 		close_dialogue()
 	
 func close_dialogue():

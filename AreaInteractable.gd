@@ -1,6 +1,6 @@
 extends Area2D
 
-export(String, 'left', 'right', 'up', 'down', 'none') var direction = 'none'
+@export var direction = 'none' # (String, 'left', 'right', 'up', 'down', 'none')
 
 var direction_map = {
 	'left': Vector2.LEFT,
@@ -31,5 +31,5 @@ func interact():
 		if !direction or direction == 'none' or G.player_direction == direction_map[direction]:
 			$Actions.get_children()[0].interact()
 			interacting = true
-			yield($Actions.get_children()[0], 'action_finished')
+			await $Actions.get_children()[0].action_finished
 			interacting = false

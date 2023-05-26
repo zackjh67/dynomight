@@ -35,7 +35,7 @@ lines = {
 "next_id": "4",
 "next_id_after": "end!",
 "replacements": [  ],
-"responses": PoolStringArray( "3", "6" ),
+"responses": PackedStringArray( "3", "6" ),
 "text": "Yes",
 "translation_key": "Yes",
 "type": "response"

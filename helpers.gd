@@ -9,7 +9,7 @@ func merge_array(array_1: Array, array_2: Array, deep_merge: bool = false) -> Ar
 		compare_array = []
 		for item in new_array:
 			if item is Dictionary or item is Array:
-				compare_array.append(JSON.print(item))
+				compare_array.append(JSON.stringify(item))
 			else:
 				compare_array.append(item)
 
@@ -18,7 +18,7 @@ func merge_array(array_1: Array, array_2: Array, deep_merge: bool = false) -> Ar
 		if item is Dictionary or item is Array:
 			item = item.duplicate(true)
 			if deep_merge:
-				item_exists = JSON.print(item)
+				item_exists = JSON.stringify(item)
 
 		if not item_exists in compare_array:
 			new_array.append(item)
