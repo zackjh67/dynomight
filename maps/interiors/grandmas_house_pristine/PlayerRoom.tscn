@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource path="res://art/terrain/terrain.png" type="Texture2D" id=1]
-[ext_resource path="res://helpers/PlayerPositionsList.tscn" type="PackedScene" id=2]
-[ext_resource path="res://maps/interiors/grandmas_house_pristine/house_objects.tres" type="TileSet" id=3]
-[ext_resource path="res://interactables/objects/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://helpers/PlayerPosition.tscn" type="PackedScene" id=5]
+[ext_resource type="Texture2D" uid="uid://k0ltxst10v4m" path="res://art/tiles/terrain/terrain.png" id="1"]
+[ext_resource type="PackedScene" path="res://helpers/PlayerPositionsList.tscn" id="2"]
+[ext_resource type="TileSet" path="res://maps/interiors/grandmas_house_pristine/house_objects.tres" id="3"]
+[ext_resource type="PackedScene" path="res://interactables/objects/Door.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://helpers/PlayerPosition.tscn" id="5"]
 
 [sub_resource type="TileSet" id=1]
 0/name = "terrain.png 0"

@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource path="res://Door.gd" type="Script" id=1]
-[ext_resource path="res://art/terrain/terrain.png" type="Texture2D" id=2]
-[ext_resource path="res://art/terrain/SnowyTrees.png" type="Texture2D" id=3]
-[ext_resource path="res://art/buildings/inner/House Objects 1 Revised.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://Door.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://k0ltxst10v4m" path="res://art/tiles/terrain/terrain.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cd5pmg6fnkfyg" path="res://art/tiles/terrain/SnowyTrees.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cit00tawvl268" path="res://art/buildings/inner/House Objects 1 Revised.png" id="4"]
 
 [sub_resource type="ConvexPolygonShape2D" id=50]
 points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )

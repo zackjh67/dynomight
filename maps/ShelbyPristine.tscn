@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://tocsxa2l8fcv"]
 
-[ext_resource type="Texture2D" uid="uid://k0ltxst10v4m" path="res://art/terrain/terrain.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cdosulkk0bq1" path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Laserfence.png" id="2"]
 [ext_resource type="PackedScene" path="res://interactables/objects/Door.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://k0ltxst10v4m" path="res://art/tiles/terrain/terrain.png" id="3_mahkq"]
 [ext_resource type="PackedScene" path="res://helpers/PlayerPosition.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://helpers/PlayerPositionsList.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://di3kiqauojdlb" path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Sidewalk_dark.png" id="6"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0q1ov4mevlsr" path="res://art/buildings/structures/PizzaPowerplant1.png" id="9"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3x3fs"]
-texture = ExtResource("1")
+texture = ExtResource("3_mahkq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bc3f2"]
 texture = ExtResource("6")
@@ -22386,7 +22386,7 @@ margins = Vector2i(320, 512)
 5:5/7/transpose = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ybg0"]
-texture = ExtResource("1")
+texture = ExtResource("3_mahkq")
 
 [sub_resource type="TileSet" id="1"]
 sources/0 = SubResource("TileSetAtlasSource_3x3fs")
@@ -31970,7 +31970,7 @@ texture = ExtResource("8")
 15:15/7/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hplk0"]
-texture = ExtResource("1")
+texture = ExtResource("3_mahkq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2gpi0"]
 texture = ExtResource("2")
