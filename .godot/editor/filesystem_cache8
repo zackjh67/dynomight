@@ -1,11 +1,11 @@
 b4bb536c7fbe646fec36344f2ea47b2f
-::res://::1698541406
+::res://::1698541565
 AreaInteractable.gd::GDScript::-1::1679700301::0::1::::<>Area2D<>::
 AreaInteractable.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://AreaInteractable.gd
 Bus.tscn::PackedScene::-1::1679700301::0::1::::<><>::
 CarsParallax.gd::GDScript::-1::1679700301::0::1::::<>ParallaxLayer<>::
 constants.gd::GDScript::-1::1679700301::0::1::::<>Node<>::
-default_env.tres::Environment::5573631104089809952::1698541407::0::1::::<><>::
+default_env.tres::Environment::5573631104089809952::1698541565::0::1::::<><>::
 default_theme.tres::Theme::3300815279496579684::1698540619::0::1::::<><>::res://fonts/joystix_font.tres
 dialogue.cfg::TextFile::-1::1677179791::0::1::::<><>::
 Dialogue.gd::GDScript::-1::1679700301::0::1::::<>CanvasLayer<>::
@@ -27,14 +27,14 @@ icon.png::CompressedTexture2D::5953443393273438833::1674345935::1679700361::1:::
 IntroLvl.gd::GDScript::-1::1679715947::0::1::::<>Node2D<>::
 IntroLvl.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://maps/ShelbyPristine.tscn<>res://NPCs/BobsBurgersEnjoyer.tscn<>res://IntroLvl.gd<>res://art/characters/chad.png<>res://DialogueNPC.tscn<>res://Player.tscn<>res://art/characters/generic assetts/Soldier/Soldier 04-2.png<>res://NPCs/ProximityNPC.tscn<>res://actions/action.tscn
 Main.gd::GDScript::-1::1682730680::0::1::::<>Node<>::
-Main.tscn::PackedScene::2426155953335851868::1698541249::0::1::::<><>::res://Main.gd<>res://helpers/SceneManager.tscn<>uid://ce546vfrlbwyo<>uid://ck0snp608p42h<>uid://vtywkmvpgpmq<>res://state/PlayerState.tscn<>res://state/GameState.tscn<>res://state/PersistentState.tscn<>res://Dialogue.tscn
+Main.tscn::PackedScene::2426155953335851868::1698541545::0::1::::<><>::res://Main.gd<>res://helpers/SceneManager.tscn<>uid://ce546vfrlbwyo<>uid://ck0snp608p42h<>uid://vtywkmvpgpmq<>res://state/PlayerState.tscn<>res://state/GameState.tscn<>res://state/PersistentState.tscn<>res://Dialogue.tscn
 map_action.gd::GDScript::-1::1679700301::0::1::::<>Node<>::
 Mob.gd::GDScript::-1::1679700301::0::1::::<>RigidBody2D<>::
 Mob.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://Mob.gd
 ParallaxLayer.gd::GDScript::-1::1679700301::0::1::::<>ParallaxLayer<>::
 Path2D.gd::GDScript::-1::1679700301::0::1::::<>Path2D<>::
 Player.gd::GDScript::-1::1682728450::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::5117345338462946734::1698541407::0::1::::<><>::uid://dunpy7d78j2y5<>res://Player.gd
+Player.tscn::PackedScene::5117345338462946734::1698541545::0::1::::<><>::uid://dunpy7d78j2y5<>res://Player.gd
 README.md::TextFile::-1::1676236138::0::1::::<><>::
 ::res://actions/::1679715660
 action.gd::GDScript::-1::1679715660::0::1::::Action<>Node<>::
@@ -652,8 +652,8 @@ Door.gd::GDScript::-1::1679715616::0::1::::<>Node2D<>::
 Door.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://art/buildings/inner/House Objects 1 Revised.png<>res://AreaInteractable.tscn<>res://interactables/objects/Door.gd<>res://actions/DialogueAction.tscn
 milk_noodles.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://art/milknoodles.png<>res://AreaInteractable.tscn<>res://actions/DialogueAction.tscn
 nightstand.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://art/buildings/inner/House Objects 1 Revised.png<>res://AreaInteractable.tscn<>res://actions/DialogueAction.tscn
-::res://maps/::1698541407
-ShelbyPristine.tscn::PackedScene::1362644105235085573::1698541249::0::1::::<><>::uid://k0ltxst10v4m<>uid://cdosulkk0bq1<>res://interactables/objects/Door.tscn<>res://helpers/PlayerPosition.tscn<>res://helpers/PlayerPositionsList.tscn<>uid://di3kiqauojdlb<>uid://byfio5d8gqh50<>uid://cy5y1lk5ipnts<>uid://b0q1ov4mevlsr
+::res://maps/::1698541565
+ShelbyPristine.tscn::PackedScene::1362644105235085573::1698541545::0::1::::<><>::uid://k0ltxst10v4m<>uid://cdosulkk0bq1<>res://interactables/objects/Door.tscn<>res://helpers/PlayerPosition.tscn<>res://helpers/PlayerPositionsList.tscn<>uid://di3kiqauojdlb<>uid://byfio5d8gqh50<>uid://cy5y1lk5ipnts<>uid://b0q1ov4mevlsr
 ::res://maps/interiors/::1676936282
 ::res://maps/interiors/grandmas_house_pristine/::1679698708
 Basement.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://maps/interiors/grandmas_house_pristine/house_objects.tres<>res://helpers/PlayerPosition.tscn<>res://art/terrain/snow_on_stones.png<>res://helpers/PlayerPositionsList.tscn<>res://interactables/objects/Door.tscn
@@ -661,10 +661,10 @@ Default.gd::GDScript::-1::1679700301::0::1::::<>Node2D<>::
 Default.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://art/random/PathAndObjects.png<>res://maps/interiors/grandmas_house_pristine/house_objects.tres<>res://interactables/objects/milk_noodles.tscn<>res://state/State.tscn<>res://interactables/objects/nightstand.tscn<>res://interactables/objects/DoobleDoor.tscn<>res://maps/interiors/grandmas_house_pristine/Default.gd<>res://interactables/objects/Door.tscn<>res://helpers/PlayerPosition.tscn<>res://helpers/PlayerPositionsList.tscn
 house_objects.tres::TileSet::-1::1679700301::0::1::::<><>::res://art/buildings/inner/House Objects 1 Revised.png<>res://art/random/misc.png<>res://art/random/miscellaneous.png<>res://art/random/PathAndObjects.png
 PlayerRoom.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://art/terrain/terrain.png<>res://helpers/PlayerPositionsList.tscn<>res://maps/interiors/grandmas_house_pristine/house_objects.tres<>res://interactables/objects/Door.tscn<>res://helpers/PlayerPosition.tscn
-::res://NPCs/::1698541249
-BobsBurgersEnjoyer.tscn::PackedScene::2484799445972630418::1698541249::0::1::::<><>::uid://c3dw20o1jlr5y
+::res://NPCs/::1698541565
+BobsBurgersEnjoyer.tscn::PackedScene::2484799445972630418::1698541565::0::1::::<><>::uid://c3dw20o1jlr5y
 ProximityNPC.gd::GDScript::-1::1679700301::0::1::::<>Node2D<>::
-ProximityNPC.tscn::PackedScene::3751326233508432919::1698541249::0::1::::<><>::uid://bbnwjwedrttb3<>res://NPCs/ProximityNPC.gd<>res://DialogueNPC.tscn
+ProximityNPC.tscn::PackedScene::3751326233508432919::1698541545::0::1::::<><>::uid://bbnwjwedrttb3<>res://NPCs/ProximityNPC.gd<>res://DialogueNPC.tscn
 ::res://state/::1679715592
 GameState.gd::GDScript::-1::1679700301::0::1::::<>State<>::
 GameState.tscn::PackedScene::-1::1679700301::0::1::::<><>::res://state/GameState.gd
