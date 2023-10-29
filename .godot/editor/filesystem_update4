@@ -1,9 +1,6 @@
-res://default_env.tres
-res://Player.tscn
-res://dialogue_theme.tres
 res://maps/ShelbyPristine.tscn
+res://default_env.tres
 res://Main.tscn
-res://Player.gd
-res://helpers/PlayerPosition.gd
-res://global.gd
-res://Main.gd
+res://Player.tscn
+res://default_theme.tres
+res://NPCs/ProximityNPC.tscn
