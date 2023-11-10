@@ -25,14 +25,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var last_rotation = 0
 func _physics_process(delta):
-	print_debug('fuck')
 	# the player can't do anything if dialogue is open
 	if can_move:
 		velocity = Vector2.ZERO
 		var direction = Vector2()
 		
 		if Input.is_action_pressed("move_right"):
-			print('fuckkkk')
 			velocity.x += 1
 			direction = Vector2.RIGHT
 		elif Input.is_action_pressed("move_left"):
@@ -69,12 +67,13 @@ func _physics_process(delta):
 			velocity = velocity
 			
 			# set interactable tile name if colliding into one
-			for i in get_slide_collision_count():
-				var collision = get_slide_collision(i)
-				if collision.collider.name == "TopLayer":
-					var pos = collision.collider.local_to_map(collision.position)
-					var id = collision.collider.get_cellv(pos - collision.normal)
-					approached_tile = collision.collider.tile_set.tile_get_name(id)
+			# TODO tile collision fuck
+#			for i in get_slide_collision_count():
+#				var collision = get_slide_collision(i)
+#				if collision.collider.name == "TopLayer":
+#					var pos = collision.collider.local_to_map(collision.position)
+#					var id = collision.collider.get_cellv(pos - collision.normal)
+#					approached_tile = collision.collider.tile_set.tile_get_name(id)
 
 
 		

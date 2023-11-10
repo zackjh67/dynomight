@@ -27,6 +27,7 @@ func _on_Interactable_body_exited(body):
 	
 # CREATE FUNCTION FOR INTERACTING WITH OBJECT
 func interact():
+# TODO this doesnt fucking work omg
 	if !interacting:
 		if !direction or direction == 'none' or G.player_direction == direction_map[direction]:
 			$Actions.get_children()[0].interact()

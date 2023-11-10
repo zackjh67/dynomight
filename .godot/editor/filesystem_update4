@@ -1,6 +1,4 @@
 res://maps/ShelbyPristine.tscn
-res://default_theme.tres
-res://dialogue_theme.tres
 res://default_env.tres
 res://NPCs/ProximityNPC.tscn
 res://NPCs/BobsBurgersEnjoyer.tscn

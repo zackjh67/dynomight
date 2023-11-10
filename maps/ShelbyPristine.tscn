@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://tocsxa2l8fcv"]
 
 [ext_resource type="Texture2D" uid="uid://cdosulkk0bq1" path="res://art/random/Skorpios_Sprite_Pack/Skorpio's Pack/Laserfence.png" id="2"]
-[ext_resource type="PackedScene" path="res://interactables/objects/Door.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://w2y3iroj4se6" path="res://interactables/objects/Door.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://k0ltxst10v4m" path="res://art/tiles/terrain/terrain.png" id="3_mahkq"]
 [ext_resource type="PackedScene" path="res://helpers/PlayerPosition.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://helpers/PlayerPositionsList.tscn" id="5"]

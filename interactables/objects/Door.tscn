@@ -1,41 +1,42 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://w2y3iroj4se6"]
 
-[ext_resource path="res://art/buildings/inner/House Objects 1 Revised.png" type="Texture2D" id=1]
-[ext_resource path="res://AreaInteractable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interactables/objects/Door.gd" type="Script" id=3]
-[ext_resource path="res://actions/DialogueAction.tscn" type="PackedScene" id=4]
+[ext_resource type="Texture2D" uid="uid://cit00tawvl268" path="res://art/buildings/inner/House Objects 1 Revised.png" id="1"]
+[ext_resource type="PackedScene" path="res://AreaInteractable.tscn" id="2"]
+[ext_resource type="Script" path="res://interactables/objects/Door.gd" id="3"]
+[ext_resource type="PackedScene" path="res://actions/DialogueAction.tscn" id="4"]
 
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="42"]
+atlas = ExtResource("1")
+region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id="43"]
 resource_local_to_scene = true
-size = Vector2( 16, 16 )
+size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id=44]
+[sub_resource type="RectangleShape2D" id="44"]
 resource_local_to_scene = true
-size = Vector2( 8, 12.5 )
+size = Vector2(8, 12.5)
 
 [node name="Door" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = SubResource( 42 )
+visible = false
+texture = SubResource("42")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 43 )
+shape = SubResource("43")
 
-[node name="AreaInteractable" parent="." instance=ExtResource( 2 )]
+[node name="AreaInteractable" parent="." instance=ExtResource("2")]
 direction = "right"
 
 [node name="CollisionShape2D" parent="AreaInteractable" index="0"]
-position = Vector2( -10, 0 )
-shape = SubResource( 44 )
+position = Vector2(-10, 0)
+shape = SubResource("44")
 
-[node name="DialogueAction" parent="AreaInteractable/Actions" index="0" instance=ExtResource( 4 )]
+[node name="DialogueAction" parent="AreaInteractable/Actions" index="0" instance=ExtResource("4")]
 
 [node name="DialogueConfig" parent="AreaInteractable/Actions/DialogueAction" index="0"]
 dialogue_path = "res://dialogues/objects/door.tres"
