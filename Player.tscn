@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://ce546vfrlbwyo"]
+[gd_scene load_steps=28 format=3 uid="uid://ce546vfrlbwyo"]
 
 [ext_resource type="Texture2D" uid="uid://dunpy7d78j2y5" path="res://art/characters/generic assetts/Xmas/pipo-xmaschara02.png" id="1"]
 [ext_resource type="Script" path="res://Player.gd" id="5"]
 
 [sub_resource type="RectangleShape2D" id="40"]
-size = Vector2(7.5, 5.5)
+size = Vector2(21, 5.5)
 
 [sub_resource type="Animation" id="52"]
 length = 0.001
@@ -239,8 +239,6 @@ states/Walk/position = Vector2(293.883, 164)
 transitions = ["Walk", "Idle", SubResource("77"), "Idle", "Walk", SubResource("78"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4pmvg")]
 graph_offset = Vector2(-183.117, 0)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="62"]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("5")
 
@@ -264,7 +262,6 @@ tree_root = SubResource("61")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Sprite2D:frame_coords")
-parameters/playback = SubResource("62")
 parameters/Idle/blend_position = Vector2(0, 0.0422919)
 parameters/Walk/blend_position = Vector2(0, 0.00136423)
 

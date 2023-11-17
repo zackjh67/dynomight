@@ -6,9 +6,9 @@ func _ready():
 
 func _interact():
 	G.emit_signal('global_dialogue_started')
-	DialogueManager.show_global_dialogue_balloon(\
-		$DialogueConfig.node_title, \
-		load($DialogueConfig.dialogue_path)
-	)
-	await DialogueManager.dialogue_finished
+#	await DialogueManager.show_dialogue_balloon(\
+#		$DialogueConfig.node_title, \
+#		load($DialogueConfig.dialogue_path)
+#	)
+#	await DialogueManager.dialogue_finished
 	G.emit_signal('global_dialogue_finished')

@@ -12,15 +12,15 @@ config_version=5
 
 config/name="DynoMight"
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 
 [autoload]
 
 Constants="*res://constants.gd"
 G="*res://global.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 H="*res://helpers.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 

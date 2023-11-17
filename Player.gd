@@ -83,6 +83,12 @@ func _process(delta):
 func _input(ev):
 	if ev.is_action_pressed("interact"):
 		if allow_interaction and G.current_interactable and G.current_interactable.has_method('interact'):
+			print_debug('interacting fuck')
+			# TODO this finally fucking works but the developer is a fuckin chode
+			# need to figure out new dialogue files and figure out example dialogue fuckin baloon
+			var resource = DialogueManager.create_resource_from_text("~ title\nCharacter: INTERESTTTTTACTIC!")
+			var dialogue_line = await DialogueManager.get_next_dialogue_line(resource, "title")
+			await DialogueManager.show_example_dialogue_balloon(resource, 'title')
 			G.current_interactable.interact()
 		# interaction for TILES ONLY
 		if allow_tile_interaction and approached_tile:

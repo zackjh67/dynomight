@@ -16,5 +16,5 @@ func _interact():
 
 func interact():
 	emit_signal('action_started')
-	await _interact().completed
+#	await _interact().completed
 	emit_signal('action_finished')

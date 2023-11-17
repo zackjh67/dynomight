@@ -24,6 +24,7 @@ const TOKEN_ASSIGNMENT = "assignment"
 const TOKEN_OPERATOR = "operator"
 const TOKEN_COMMA = "comma"
 const TOKEN_DOT = "dot"
+const TOKEN_CONDITION = "condition"
 const TOKEN_BOOL = "bool"
 const TOKEN_NOT = "not"
 const TOKEN_AND_OR = "and_or"
@@ -56,6 +57,84 @@ const ID_ERROR_TITLE_HAS_NO_BODY = "title has no body"
 const ID_END = "end"
 const ID_END_CONVERSATION = "end!"
 
+# Runtime primitive methods
+
+const SUPPORTED_PRIMITIVES = [TYPE_ARRAY, TYPE_DICTIONARY, TYPE_QUATERNION, TYPE_COLOR, TYPE_SIGNAL]
+const SUPPORTED_ARRAY_METHODS = [
+	"assign",
+	"append",
+	"append_array",
+	"back",
+	"count",
+	"clear",
+	"erase",
+	"has",
+	"insert",
+	"is_empty",
+	"max",
+	"min",
+	"pick_random",
+	"pop_at",
+	"pop_back",
+	"pop_front",
+	"push_back",
+	"push_front",
+	"remove_at",
+	"reverse",
+	"shuffle",
+	"size",
+	"sort"
+]
+const SUPPORTED_DICTIONARY_METHODS = ["has", "has_all", "get", "keys", "values", "size"]
+const SUPPORTED_QUATERNION_METHODS = [
+	"angle_to",
+	"dot",
+	"exp",
+	"from_euler",
+	"get_angle",
+	"get_axis",
+	"get_euler",
+	"inverse",
+	"is_equal_approx",
+	"is_finite",
+	"is_normalized",
+	"length",
+	"length_squared",
+	"log",
+	"normalized",
+	"slerp",
+	"slerpni",
+	"spherical_cubic_interpolate",
+	"spherical_cubic_interpolate_in_time"
+]
+const SUPPORTED_COLOR_METHODS = [
+	"blend",
+	"clamp",
+	"darkened",
+	"from_hsv",
+	"from_ok_hsl",
+	"from_rgbe9995",
+	"from_string",
+	"get_luminance",
+	"hex",
+	"hex64",
+	"html",
+	"html_is_valid",
+	"inverted",
+	"is_equal_approx",
+	"lerp",
+	"lightened",
+	"linear_to_srgb",
+	"srgb_to_linear",
+	"to_abgr32",
+	"to_abgr64",
+	"to_argb32",
+	"to_argb64",
+	"to_html",
+	"to_rgba32",
+	"to_rgba64"
+]
+
 # Errors
 
 const ERR_ERRORS_IN_IMPORTED_FILE = 100
@@ -69,7 +148,7 @@ const ERR_UNKNOWN_TITLE = 107
 const ERR_INVALID_TITLE_REFERENCE = 108
 const ERR_TITLE_REFERENCE_HAS_NO_CONTENT = 109
 const ERR_INVALID_EXPRESSION = 110
-const ERR_INVALID_EXPRESSION_IN_CHARACTER_NAME = 111
+const ERR_UNEXPECTED_CONDITION = 111
 const ERR_DUPLICATE_ID = 112
 const ERR_MISSING_ID = 113
 const ERR_INVALID_INDENTATION = 114
@@ -93,6 +172,7 @@ const ERR_UNEXPECTED_NUMBER = 131
 const ERR_UNEXPECTED_VARIABLE = 132
 const ERR_INVALID_INDEX = 133
 const ERR_UNEXPECTED_ASSIGNMENT = 134
+const ERR_UNKNOWN_USING = 135
 
 
 ## Get the error message
@@ -122,8 +202,8 @@ static func get_error_message(error: int) -> String:
 			return translate("errors.title_has_no_content")
 		ERR_INVALID_EXPRESSION:
 			return translate("errors.invalid_expression")
-		ERR_INVALID_EXPRESSION_IN_CHARACTER_NAME:
-			return translate("errors.invalid_expression_for_character")
+		ERR_UNEXPECTED_CONDITION:
+			return translate("errors.unexpected_condition")
 		ERR_DUPLICATE_ID:
 			return translate("errors.duplicate_id")
 		ERR_MISSING_ID:
@@ -168,13 +248,16 @@ static func get_error_message(error: int) -> String:
 			return translate("errors.invalid_index")
 		ERR_UNEXPECTED_ASSIGNMENT:
 			return translate("errors.unexpected_assignment")
+		ERR_UNKNOWN_USING:
+			return translate("errors.unknown_using")
 
 	return translate("errors.unknown")
 
 
 static func translate(string: String) -> String:
-	var language: String = TranslationServer.get_tool_locale().substr(0, 2)
+	var language: String = TranslationServer.get_tool_locale()
 	var translations_path: String = "res://addons/dialogue_manager/l10n/%s.po" % language
-	var fallback_translations_path: String = "res://addons/dialogue_manager/l10n/en.po"
-	var translations: Translation = load(translations_path if FileAccess.file_exists(translations_path) else fallback_translations_path) 
+	var fallback_translations_path: String = "res://addons/dialogue_manager/l10n/"+TranslationServer.get_tool_locale().substr(0, 2)+".po"
+	var en_translations_path: String = "res://addons/dialogue_manager/l10n/en.po"
+	var translations: Translation = load(translations_path if FileAccess.file_exists(translations_path) else (fallback_translations_path if FileAccess.file_exists(fallback_translations_path) else en_translations_path))
 	return translations.get_message(string)

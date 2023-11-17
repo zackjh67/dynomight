@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var direction = 'none' # (String, 'left', 'right', 'up', 'down', 'none')
+@export var direction: String = 'none' # (String, 'left', 'right', 'up', 'down', 'none')
 
 var direction_map = {
 	'left': Vector2.LEFT,
@@ -29,8 +29,8 @@ func _on_Interactable_body_exited(body):
 func interact():
 # TODO this doesnt fucking work omg
 	if !interacting:
-		if !direction or direction == 'none' or G.player_direction == direction_map[direction]:
+		if direction == 'none' or G.player_direction == direction_map[direction]:
 			$Actions.get_children()[0].interact()
-			interacting = true
-			await $Actions.get_children()[0].action_finished
-			interacting = false
+#			interacting = true
+#			await $Actions.get_children()[0].action_finished
+#			interacting = false

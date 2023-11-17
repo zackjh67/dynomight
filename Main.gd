@@ -30,11 +30,13 @@ var bus
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	G.Dialogue = $Dialogue;
+#	G.Dialogue = $Dialogue;
 	G.game_stat = $State/GameState;
 	G.player_state = $State/PlayerState;
 	G.level_state = $State/LevelState;
 	G.persistent_state = $State/PersistentState;
+	
+
 	
 	G.connect('global_dialogue_started', Callable(self, '_on_Dialogue_dialogue_started'))
 	G.connect('global_dialogue_finished', Callable(self, '_on_Dialogue_dialogue_finished'))

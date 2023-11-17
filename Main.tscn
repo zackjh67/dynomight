@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://batio02kihs73"]
+[gd_scene load_steps=14 format=3 uid="uid://batio02kihs73"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1"]
 [ext_resource type="PackedScene" path="res://helpers/SceneManager.tscn" id="2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" path="res://state/PlayerState.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://state/GameState.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://state/PersistentState.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://Dialogue.tscn" id="10"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "fade_in"
@@ -94,9 +93,6 @@ libraries = {
 "": SubResource("AnimationLibrary_xb4jq")
 }
 
-[node name="Dialogue" parent="." instance=ExtResource("10")]
-visible = true
-
 [node name="Player" parent="." instance=ExtResource("3")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -128,8 +124,5 @@ libraries = {
 [node name="LevelState" type="Node" parent="State"]
 
 [node name="PersistentState" parent="State" instance=ExtResource("9")]
-
-[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_Dialogue_dialogue_finished"]
-[connection signal="dialogue_started" from="Dialogue" to="." method="_on_Dialogue_dialogue_started"]
 
 [editable path="SceneManager"]
